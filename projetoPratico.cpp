@@ -28,6 +28,27 @@ struct Musicas {
         
     }
 
+    void leitura (ifstream& arquivo, Musicas &musicAdd)  {
+            string lixo;
+            getline(arquivo, musicAdd.artista, ',');
+            getline(arquivo, musicAdd.nomeMsc, ',');
+            arquivo >> musicAdd.duracaoMs;
+            getline(arquivo, lixo, ',');
+            getline(arquivo, musicAdd.generoMusical, ',');
+            arquivo >> musicAdd.anoLançamento;
+            getline(arquivo, lixo, ',');
+            arquivo >> musicAdd.popularideEscala;
+            getline(arquivo, lixo, ',');
+            getline(arquivo, lixo, ',');
+            getline(arquivo, lixo, ',');
+            getline(arquivo, lixo, ',');
+            arquivo >> musicAdd.volumeMedio;
+            getline(arquivo,lixo, ';');
+            
+            
+
+    }
+
 
 
 };
@@ -51,11 +72,19 @@ int main () {
 
         Musicas *musicAdd = new Musicas[numMsc];
 
-        for (int i = 0; i < numMsc; i++) {
-
+        
+        for(int i = 0; i < numMsc; i++) {
+            musicAdd[i].leitura(arquivo_csv, musicAdd[i]);
 
         }
 
+
+
+        for(int i = 0; i < numMsc; i++) {
+            
+            musicAdd[i].imprimir();
+
+        }
 
 
         
