@@ -1,0 +1,501 @@
+artist,song,duration_ms,genre,year,streams,loudness
+Doja Cat,Kiss Me More,173067,r&b,2009,3.705,-9.56
+Justin Bieber,Love Yourself,217405,r&b,2003,3.881,-5.51
+Adele,Easy On Me,212248,r&b,2005,4.905,-4.07
+Linkin Park,In the End,173347,pop,2019,3.28,-5.42
+Harry Styles,As It Was,183264,alternative,2009,4.139,-6.54
+Queen,Bohemian Rhapsody,252082,hip hop,2021,4.492,-5.75
+The Weeknd,Blinding Lights,186669,alternative,2014,4.578,-7.94
+Maroon 5,Memories,239932,electronic,2020,2.242,-10.26
+Taylor Swift,Cruel Summer,187008,rock,2002,4.594,-5.52
+Imagine Dragons,Believer,233566,hip hop,2005,4.093,-11.2
+Shawn Mendes,Treat You Better,195240,electronic,2018,3.999,-4.83
+Ed Sheeran,Shape of You,230691,electronic,2022,2.245,-4.63
+Harry Styles,As It Was,206712,rock,2010,2.608,-8.52
+Ed Sheeran,Shape of You,203989,pop,2011,4.46,-5.97
+Adele,Easy On Me,272209,pop,2020,3.606,-7.83
+Ed Sheeran,Shape of You,253167,rock,2004,2.279,-8.92
+Taylor Swift,Cruel Summer,206463,rock,2006,3.341,-6.69
+Bad Bunny,Dakiti,204100,rock,2015,4.455,-8.28
+XXXTentacion,Sad!,236248,alternative,2013,4.877,-6.39
+Post Malone,Sunflower,174283,electronic,2014,4.828,-9.9
+Ed Sheeran,Shape of You,255972,electronic,2001,2.181,-10.61
+Imagine Dragons,Believer,170495,rock,2006,2.742,-10.43
+Bruno Mars,That's What I Like,269806,alternative,2009,2.15,-10.82
+Taylor Swift,Cruel Summer,201563,electronic,2005,4.146,-7.69
+Charlie Puth,We Don't Talk Anymore,192975,r&b,2000,3.957,-11.81
+Maroon 5,Memories,212881,r&b,2005,4.909,-5.58
+Dua Lipa,Levitating,210102,pop,2005,3.96,-5.63
+Harry Styles,As It Was,189859,hip hop,2017,3.752,-10.39
+XXXTentacion,Sad!,197369,electronic,2013,4.795,-5.23
+Dua Lipa,Levitating,213615,rock,2014,3.601,-4.43
+Lady Gaga,Shallow,203799,hip hop,2003,3.633,-8.5
+Bruno Mars,That's What I Like,194547,electronic,2018,4.782,-9.43
+Ed Sheeran,Shape of You,277168,alternative,2009,4.561,-4.27
+Kendrick Lamar,HUMBLE.,192103,hip hop,2015,3.939,-10.28
+Kendrick Lamar,HUMBLE.,233260,r&b,2005,3.551,-8.94
+Eminem,Lose Yourself,211544,r&b,2014,2.57,-5.25
+Queen,Bohemian Rhapsody,221681,alternative,2023,4.383,-8.43
+Ed Sheeran,Shape of You,202954,hip hop,2015,4.364,-4.63
+Drake,God's Plan,199834,alternative,2003,2.474,-10.34
+Lewis Capaldi,Someone You Loved,273070,rock,2022,4.658,-10.55
+Bruno Mars,That's What I Like,177860,r&b,2010,4.742,-8.07
+Doja Cat,Kiss Me More,194901,alternative,2022,3.376,-6.05
+Billie Eilish,Bad Guy,249879,rock,2012,2.732,-9.76
+Travis Scott,Sicko Mode,199053,pop,2020,4.343,-4.4
+Travis Scott,Sicko Mode,198620,pop,2021,2.987,-9.32
+Bruno Mars,That's What I Like,169016,r&b,2008,4.086,-10.11
+Imagine Dragons,Believer,209977,pop,2022,4.984,-7.71
+Coldplay,Yellow,174425,rock,2008,3.199,-10.04
+Ed Sheeran,Shape of You,287852,pop,2015,3.692,-10.56
+Coldplay,Yellow,199527,hip hop,2022,4.467,-4.42
+Imagine Dragons,Believer,212225,electronic,2007,4.109,-6.38
+Doja Cat,Kiss Me More,238350,hip hop,2004,4.446,-8.77
+Dua Lipa,Levitating,190309,r&b,2004,2.568,-6.66
+The Weeknd,Blinding Lights,271851,r&b,2016,4.541,-4.59
+Maroon 5,Memories,195690,r&b,2000,2.196,-6.77
+Adele,Easy On Me,294174,r&b,2012,2.359,-8.22
+Taylor Swift,Cruel Summer,267785,rock,2020,2.286,-5.56
+Billie Eilish,Bad Guy,172631,hip hop,2024,4.248,-5.47
+Ed Sheeran,Shape of You,270705,pop,2020,2.919,-8.5
+Billie Eilish,Bad Guy,280660,pop,2021,4.783,-4.04
+Lewis Capaldi,Someone You Loved,200240,pop,2020,4.842,-4.31
+Billie Eilish,Bad Guy,213028,hip hop,2013,3.92,-6.14
+Linkin Park,In the End,244827,alternative,2022,3.33,-9.42
+Ariana Grande,7 Rings,157781,r&b,2017,4.832,-5.67
+Shawn Mendes,Treat You Better,156464,alternative,2002,4.959,-7.46
+Imagine Dragons,Believer,288568,electronic,2019,3.397,-5.34
+Imagine Dragons,Believer,288096,pop,2011,4.518,-9.44
+Post Malone,Sunflower,195023,rock,2004,3.732,-10.53
+Justin Bieber,Love Yourself,184833,pop,2005,4.7,-4.0
+Adele,Easy On Me,186461,alternative,2012,4.962,-11.87
+The Weeknd,Blinding Lights,291170,alternative,2012,3.919,-5.6
+Shawn Mendes,Treat You Better,221302,alternative,2003,4.062,-11.28
+Coldplay,Yellow,231855,alternative,2023,2.633,-8.06
+XXXTentacion,Sad!,279356,rock,2015,2.419,-7.34
+Queen,Bohemian Rhapsody,235638,hip hop,2006,2.447,-6.35
+Harry Styles,As It Was,172548,rock,2019,4.257,-4.76
+Dua Lipa,Levitating,230703,rock,2016,2.543,-7.92
+Kendrick Lamar,HUMBLE.,228486,rock,2003,4.754,-8.38
+The Weeknd,Blinding Lights,255691,hip hop,2015,4.4,-9.04
+Justin Bieber,Love Yourself,280958,pop,2017,4.067,-5.76
+Lewis Capaldi,Someone You Loved,176507,hip hop,2020,2.649,-6.31
+Ed Sheeran,Shape of You,201772,pop,2020,3.571,-4.72
+Ariana Grande,7 Rings,293380,electronic,2014,3.58,-6.66
+Ed Sheeran,Shape of You,167554,hip hop,2018,4.698,-11.32
+Bad Bunny,Dakiti,168526,r&b,2022,3.264,-9.31
+Ed Sheeran,Shape of You,235893,r&b,2006,4.497,-4.37
+Taylor Swift,Cruel Summer,276531,rock,2011,2.063,-9.34
+Maroon 5,Memories,283760,rock,2013,4.479,-7.55
+Lewis Capaldi,Someone You Loved,253402,rock,2019,3.882,-8.25
+Drake,God's Plan,186674,hip hop,2008,4.58,-9.58
+Queen,Bohemian Rhapsody,175847,electronic,2005,3.514,-4.43
+Drake,God's Plan,209734,rock,2013,2.952,-7.25
+Eminem,Lose Yourself,273609,electronic,2009,3.726,-5.09
+Adele,Easy On Me,249306,r&b,2017,3.725,-4.71
+Coldplay,Yellow,200094,hip hop,2019,2.112,-10.88
+Bad Bunny,Dakiti,171433,hip hop,2002,4.549,-4.52
+Eminem,Lose Yourself,249551,pop,2019,3.917,-7.09
+Imagine Dragons,Believer,293729,electronic,2015,2.901,-5.37
+Bad Bunny,Dakiti,282526,alternative,2016,4.156,-7.63
+Maroon 5,Memories,175728,electronic,2016,4.951,-5.54
+XXXTentacion,Sad!,160868,pop,2012,2.248,-11.4
+Coldplay,Yellow,281225,rock,2004,2.641,-10.93
+Adele,Easy On Me,222863,rock,2017,2.799,-4.15
+Maroon 5,Memories,172330,pop,2002,3.837,-7.78
+Lewis Capaldi,Someone You Loved,236430,r&b,2017,4.53,-11.26
+Ed Sheeran,Shape of You,166610,hip hop,2006,3.32,-10.78
+Taylor Swift,Cruel Summer,198906,hip hop,2017,3.479,-9.36
+Post Malone,Sunflower,181787,rock,2005,4.55,-6.47
+Dua Lipa,Levitating,150866,alternative,2004,2.713,-11.27
+Maroon 5,Memories,210022,r&b,2006,4.556,-9.33
+Imagine Dragons,Believer,270777,rock,2011,4.501,-7.15
+Travis Scott,Sicko Mode,241439,r&b,2015,2.267,-8.24
+XXXTentacion,Sad!,191241,r&b,2012,4.515,-9.81
+Queen,Bohemian Rhapsody,218206,rock,2012,4.213,-9.79
+Travis Scott,Sicko Mode,188525,hip hop,2019,2.185,-9.36
+Queen,Bohemian Rhapsody,239919,rock,2017,4.068,-7.67
+SZA,Kill Bill,179718,alternative,2024,3.101,-5.13
+Linkin Park,In the End,180605,r&b,2016,4.946,-9.95
+Maroon 5,Memories,277898,hip hop,2018,3.476,-8.76
+Lady Gaga,Shallow,199905,alternative,2019,4.912,-11.67
+Coldplay,Yellow,268342,electronic,2007,4.774,-7.85
+Ed Sheeran,Shape of You,239765,alternative,2009,4.61,-4.74
+Ed Sheeran,Shape of You,241516,rock,2008,2.914,-8.34
+Charlie Puth,We Don't Talk Anymore,252192,rock,2010,4.668,-7.12
+Eminem,Lose Yourself,166326,pop,2023,3.241,-4.96
+Mike Posner,I Took a Pill in Ibiza,178456,r&b,2003,2.738,-11.4
+Imagine Dragons,Believer,160921,rock,2003,3.627,-11.56
+Bruno Mars,That's What I Like,236634,alternative,2014,4.502,-11.32
+XXXTentacion,Sad!,233379,r&b,2016,3.564,-11.12
+Billie Eilish,Bad Guy,150962,hip hop,2013,2.881,-7.05
+Adele,Easy On Me,180892,r&b,2011,3.765,-6.23
+Shawn Mendes,Treat You Better,241689,hip hop,2011,3.423,-6.66
+XXXTentacion,Sad!,251552,pop,2022,4.745,-5.63
+Maroon 5,Memories,206295,r&b,2014,3.3,-8.19
+Dua Lipa,Levitating,221480,r&b,2017,2.23,-5.03
+Harry Styles,As It Was,226648,alternative,2002,4.428,-7.69
+Bad Bunny,Dakiti,230789,hip hop,2000,3.388,-7.46
+Coldplay,Yellow,196446,electronic,2002,4.206,-9.37
+Shawn Mendes,Treat You Better,165565,electronic,2009,4.057,-9.71
+Lady Gaga,Shallow,213776,rock,2002,2.233,-5.57
+Queen,Bohemian Rhapsody,297944,alternative,2000,4.018,-11.03
+The Weeknd,Blinding Lights,291628,electronic,2004,3.078,-8.68
+The Weeknd,Blinding Lights,195780,r&b,2022,2.876,-4.71
+Coldplay,Yellow,263392,hip hop,2007,4.025,-9.14
+Shawn Mendes,Treat You Better,229315,rock,2019,4.872,-11.41
+Harry Styles,As It Was,248752,alternative,2015,3.086,-5.75
+Ed Sheeran,Shape of You,194900,hip hop,2014,2.713,-10.91
+Travis Scott,Sicko Mode,192130,rock,2021,4.47,-7.15
+Mike Posner,I Took a Pill in Ibiza,209252,alternative,2006,3.678,-5.57
+Lady Gaga,Shallow,260509,pop,2014,3.743,-7.17
+Ariana Grande,7 Rings,206433,r&b,2018,4.265,-6.51
+Coldplay,Yellow,269103,alternative,2008,4.464,-9.58
+Ed Sheeran,Shape of You,240806,rock,2024,3.428,-8.65
+Charlie Puth,We Don't Talk Anymore,196010,alternative,2024,3.725,-7.99
+Drake,God's Plan,180961,hip hop,2018,2.138,-5.81
+Post Malone,Sunflower,180605,alternative,2019,3.306,-5.63
+Post Malone,Sunflower,163077,pop,2006,2.372,-4.5
+Drake,God's Plan,194614,r&b,2017,4.288,-5.35
+Queen,Bohemian Rhapsody,206511,electronic,2003,4.339,-7.26
+Justin Bieber,Love Yourself,298366,electronic,2019,2.981,-5.71
+Maroon 5,Memories,259067,rock,2007,4.206,-9.33
+Drake,God's Plan,279005,electronic,2016,3.312,-7.92
+Dua Lipa,Levitating,243471,rock,2006,3.157,-8.79
+Ed Sheeran,Shape of You,188881,rock,2020,4.028,-11.8
+Lewis Capaldi,Someone You Loved,230388,hip hop,2012,2.623,-10.06
+Dua Lipa,Levitating,253576,electronic,2012,4.509,-10.77
+Shawn Mendes,Treat You Better,273113,electronic,2009,2.378,-7.54
+Kendrick Lamar,HUMBLE.,154852,hip hop,2006,4.973,-11.2
+Linkin Park,In the End,161734,r&b,2001,2.376,-7.89
+SZA,Kill Bill,283102,electronic,2001,4.012,-10.22
+Bad Bunny,Dakiti,170868,alternative,2021,4.038,-6.56
+Charlie Puth,We Don't Talk Anymore,175226,electronic,2023,4.326,-7.05
+Bruno Mars,That's What I Like,277148,pop,2023,3.621,-8.2
+Lewis Capaldi,Someone You Loved,260951,hip hop,2011,3.532,-8.34
+Lewis Capaldi,Someone You Loved,222546,rock,2021,4.787,-8.08
+Charlie Puth,We Don't Talk Anymore,206093,alternative,2021,2.219,-9.58
+Ariana Grande,7 Rings,156400,alternative,2004,3.55,-6.1
+Olivia Rodrigo,Good 4 U,215928,hip hop,2019,3.72,-8.0
+Doja Cat,Kiss Me More,160277,r&b,2016,2.762,-4.18
+Doja Cat,Kiss Me More,296621,pop,2003,4.542,-9.54
+Harry Styles,As It Was,226506,r&b,2018,4.543,-6.87
+Bruno Mars,That's What I Like,150148,hip hop,2002,4.449,-6.08
+Maroon 5,Memories,184091,alternative,2006,2.875,-10.75
+The Weeknd,Blinding Lights,240915,rock,2021,4.054,-10.04
+Billie Eilish,Bad Guy,238309,alternative,2014,4.027,-11.02
+Post Malone,Sunflower,176852,alternative,2016,4.434,-8.87
+Imagine Dragons,Believer,283870,alternative,2005,2.593,-7.21
+Doja Cat,Kiss Me More,208920,r&b,2005,2.64,-4.24
+Imagine Dragons,Believer,186984,hip hop,2003,2.048,-4.19
+Doja Cat,Kiss Me More,297434,rock,2016,2.188,-9.05
+Imagine Dragons,Believer,237355,rock,2004,2.82,-11.61
+Queen,Bohemian Rhapsody,248072,alternative,2000,2.374,-6.23
+Dua Lipa,Levitating,225744,r&b,2004,4.14,-5.9
+Adele,Easy On Me,207533,alternative,2017,2.66,-10.69
+Bruno Mars,That's What I Like,165792,hip hop,2013,2.75,-8.67
+Harry Styles,As It Was,265946,r&b,2011,2.658,-6.63
+Bruno Mars,That's What I Like,235116,hip hop,2006,4.974,-7.48
+The Weeknd,Blinding Lights,200932,hip hop,2020,2.808,-11.87
+Queen,Bohemian Rhapsody,291269,rock,2010,3.01,-8.84
+Dua Lipa,Levitating,221319,hip hop,2019,2.501,-7.72
+Drake,God's Plan,240054,rock,2019,4.222,-9.85
+Coldplay,Yellow,184758,hip hop,2003,4.666,-9.57
+Kendrick Lamar,HUMBLE.,156250,electronic,2003,2.621,-11.93
+Harry Styles,As It Was,193048,electronic,2019,2.742,-7.86
+Bruno Mars,That's What I Like,294124,rock,2000,4.264,-6.13
+Coldplay,Yellow,299789,alternative,2010,2.883,-4.23
+Coldplay,Yellow,281037,rock,2001,4.031,-8.89
+Eminem,Lose Yourself,234114,electronic,2012,3.458,-7.88
+Bad Bunny,Dakiti,224083,alternative,2009,2.478,-6.64
+Linkin Park,In the End,175440,hip hop,2010,2.385,-6.14
+Billie Eilish,Bad Guy,183294,r&b,2022,2.131,-7.14
+Doja Cat,Kiss Me More,181858,hip hop,2001,2.263,-7.42
+Imagine Dragons,Believer,260406,alternative,2024,4.957,-6.83
+Mike Posner,I Took a Pill in Ibiza,262840,electronic,2017,4.766,-10.12
+Charlie Puth,We Don't Talk Anymore,197824,rock,2017,2.111,-6.57
+Bad Bunny,Dakiti,191994,electronic,2011,2.525,-6.48
+Lady Gaga,Shallow,183551,pop,2013,3.445,-8.61
+Justin Bieber,Love Yourself,247281,r&b,2010,3.45,-6.96
+Coldplay,Yellow,203028,electronic,2014,2.467,-10.97
+Drake,God's Plan,195412,alternative,2021,2.446,-9.94
+Olivia Rodrigo,Good 4 U,264455,hip hop,2015,2.723,-5.21
+Shawn Mendes,Treat You Better,270620,alternative,2008,3.858,-6.76
+Maroon 5,Memories,256271,r&b,2013,2.451,-10.54
+Bruno Mars,That's What I Like,224664,hip hop,2013,4.854,-8.14
+Linkin Park,In the End,273076,electronic,2005,2.829,-4.24
+Coldplay,Yellow,238686,electronic,2012,3.568,-10.29
+Lady Gaga,Shallow,264519,rock,2013,2.3,-11.93
+Kendrick Lamar,HUMBLE.,156242,electronic,2015,3.832,-9.27
+The Weeknd,Blinding Lights,193256,r&b,2009,4.311,-5.07
+The Weeknd,Blinding Lights,254421,alternative,2017,3.29,-5.64
+Imagine Dragons,Believer,279762,electronic,2010,4.719,-8.04
+Adele,Easy On Me,191391,pop,2022,3.335,-4.47
+Mike Posner,I Took a Pill in Ibiza,163009,rock,2022,2.847,-11.29
+Bruno Mars,That's What I Like,295711,hip hop,2005,4.629,-8.51
+Maroon 5,Memories,156965,alternative,2023,3.998,-8.79
+XXXTentacion,Sad!,281872,hip hop,2017,3.615,-9.34
+Coldplay,Yellow,163326,rock,2011,4.055,-5.52
+Taylor Swift,Cruel Summer,298122,alternative,2004,2.882,-10.45
+Queen,Bohemian Rhapsody,254405,alternative,2001,2.23,-7.84
+Bruno Mars,That's What I Like,231677,pop,2010,2.847,-9.27
+XXXTentacion,Sad!,266136,pop,2006,2.82,-7.72
+Lewis Capaldi,Someone You Loved,209925,r&b,2017,3.619,-10.26
+Lewis Capaldi,Someone You Loved,297296,hip hop,2020,2.165,-11.13
+XXXTentacion,Sad!,223990,electronic,2001,2.134,-6.94
+SZA,Kill Bill,183414,electronic,2003,3.961,-7.61
+Bruno Mars,That's What I Like,253870,pop,2000,4.751,-10.62
+Justin Bieber,Love Yourself,196788,alternative,2013,2.589,-6.0
+Kendrick Lamar,HUMBLE.,256036,r&b,2011,3.126,-7.68
+Lewis Capaldi,Someone You Loved,169792,alternative,2001,2.528,-11.18
+Justin Bieber,Love Yourself,204699,r&b,2020,4.632,-7.77
+The Weeknd,Blinding Lights,284912,hip hop,2006,2.244,-8.87
+Eminem,Lose Yourself,277687,electronic,2016,3.797,-5.44
+Bad Bunny,Dakiti,299344,pop,2002,3.052,-7.88
+Adele,Easy On Me,261835,rock,2000,4.319,-11.96
+Lewis Capaldi,Someone You Loved,191008,hip hop,2023,3.028,-9.11
+Harry Styles,As It Was,162446,electronic,2001,4.995,-10.94
+XXXTentacion,Sad!,232123,pop,2018,4.523,-10.67
+Lewis Capaldi,Someone You Loved,230985,hip hop,2003,4.672,-11.01
+Bruno Mars,That's What I Like,203702,rock,2000,4.821,-9.89
+Bad Bunny,Dakiti,176918,alternative,2010,2.845,-5.09
+Taylor Swift,Cruel Summer,174922,alternative,2024,3.738,-7.78
+Drake,God's Plan,159786,electronic,2019,4.782,-11.53
+Doja Cat,Kiss Me More,154545,r&b,2023,3.021,-7.67
+Bruno Mars,That's What I Like,292958,alternative,2009,3.342,-5.91
+Ariana Grande,7 Rings,214881,hip hop,2000,4.601,-10.53
+Olivia Rodrigo,Good 4 U,282500,r&b,2000,2.398,-5.34
+Imagine Dragons,Believer,250650,rock,2014,3.068,-6.95
+Eminem,Lose Yourself,165599,hip hop,2011,4.983,-5.5
+Bruno Mars,That's What I Like,242079,r&b,2016,4.617,-4.18
+Charlie Puth,We Don't Talk Anymore,268769,hip hop,2008,4.673,-8.52
+Harry Styles,As It Was,214112,alternative,2002,3.144,-11.14
+Doja Cat,Kiss Me More,205424,hip hop,2012,3.257,-6.15
+Shawn Mendes,Treat You Better,294081,hip hop,2012,2.892,-4.27
+Coldplay,Yellow,209447,hip hop,2007,2.108,-5.98
+Dua Lipa,Levitating,241594,r&b,2024,4.818,-11.38
+Ariana Grande,7 Rings,183591,alternative,2012,3.738,-9.58
+Lewis Capaldi,Someone You Loved,213784,electronic,2024,3.805,-8.66
+Imagine Dragons,Believer,213792,r&b,2013,3.192,-4.59
+Drake,God's Plan,206062,r&b,2004,3.875,-7.53
+Imagine Dragons,Believer,175865,hip hop,2013,2.325,-11.74
+Queen,Bohemian Rhapsody,170441,r&b,2001,4.54,-4.09
+Maroon 5,Memories,258287,r&b,2018,2.947,-6.84
+Drake,God's Plan,252565,r&b,2024,3.999,-11.47
+Maroon 5,Memories,161242,rock,2020,4.725,-8.24
+Taylor Swift,Cruel Summer,223324,rock,2012,4.049,-11.4
+Eminem,Lose Yourself,294043,alternative,2002,3.221,-10.31
+Bruno Mars,That's What I Like,258530,alternative,2013,2.658,-7.44
+Olivia Rodrigo,Good 4 U,281232,rock,2003,3.123,-6.43
+Olivia Rodrigo,Good 4 U,171175,rock,2021,3.246,-11.21
+Bruno Mars,That's What I Like,170758,hip hop,2005,3.307,-4.51
+Drake,God's Plan,242541,rock,2005,4.154,-11.41
+The Weeknd,Blinding Lights,209016,pop,2023,2.254,-6.34
+Kendrick Lamar,HUMBLE.,278473,pop,2022,4.718,-7.37
+Imagine Dragons,Believer,163515,electronic,2005,4.232,-9.8
+Adele,Easy On Me,258303,alternative,2021,3.032,-8.87
+Doja Cat,Kiss Me More,156253,pop,2001,3.306,-5.98
+Ariana Grande,7 Rings,201404,alternative,2014,3.659,-6.4
+Olivia Rodrigo,Good 4 U,190624,pop,2022,3.877,-5.91
+Kendrick Lamar,HUMBLE.,291896,r&b,2006,2.673,-6.2
+Lewis Capaldi,Someone You Loved,293985,pop,2012,4.285,-6.67
+Eminem,Lose Yourself,191650,electronic,2008,3.492,-4.48
+Coldplay,Yellow,190022,r&b,2009,4.09,-8.98
+Shawn Mendes,Treat You Better,246827,r&b,2007,4.012,-10.8
+Drake,God's Plan,229080,r&b,2012,3.177,-6.96
+Ed Sheeran,Shape of You,237500,alternative,2020,3.087,-8.69
+Adele,Easy On Me,292969,electronic,2006,2.262,-8.92
+Harry Styles,As It Was,294661,hip hop,2023,2.256,-8.32
+Kendrick Lamar,HUMBLE.,151169,rock,2010,3.454,-10.98
+Lady Gaga,Shallow,216843,alternative,2022,4.769,-4.63
+Justin Bieber,Love Yourself,176820,rock,2024,3.126,-5.73
+Dua Lipa,Levitating,246357,r&b,2013,3.338,-6.07
+Post Malone,Sunflower,185159,pop,2009,3.397,-8.71
+Billie Eilish,Bad Guy,283797,pop,2005,3.532,-7.44
+Drake,God's Plan,219180,alternative,2017,4.334,-5.88
+Dua Lipa,Levitating,182996,r&b,2002,2.475,-6.04
+Bruno Mars,That's What I Like,161190,rock,2002,2.385,-6.73
+Shawn Mendes,Treat You Better,211190,hip hop,2019,4.298,-7.55
+Queen,Bohemian Rhapsody,178115,hip hop,2000,4.929,-10.34
+Mike Posner,I Took a Pill in Ibiza,231876,hip hop,2005,4.538,-5.01
+Ariana Grande,7 Rings,291796,rock,2018,3.838,-8.62
+Imagine Dragons,Believer,176847,rock,2009,3.174,-11.21
+Ed Sheeran,Shape of You,150718,alternative,2005,3.818,-10.54
+Linkin Park,In the End,282917,rock,2004,4.676,-6.64
+Olivia Rodrigo,Good 4 U,214681,rock,2006,4.177,-8.71
+Ariana Grande,7 Rings,236513,electronic,2005,2.289,-6.36
+Travis Scott,Sicko Mode,290355,r&b,2013,4.872,-11.99
+Lewis Capaldi,Someone You Loved,277509,hip hop,2007,3.844,-5.56
+Charlie Puth,We Don't Talk Anymore,187799,hip hop,2020,2.997,-6.87
+Lady Gaga,Shallow,185417,electronic,2016,3.896,-11.3
+Taylor Swift,Cruel Summer,262277,hip hop,2021,2.421,-7.7
+Travis Scott,Sicko Mode,167418,electronic,2011,2.269,-4.59
+Lady Gaga,Shallow,280992,alternative,2015,4.398,-9.63
+Justin Bieber,Love Yourself,246636,alternative,2000,2.383,-6.35
+XXXTentacion,Sad!,238499,electronic,2002,4.811,-4.06
+Maroon 5,Memories,246195,electronic,2007,2.564,-10.89
+Travis Scott,Sicko Mode,248083,electronic,2009,4.412,-7.15
+Post Malone,Sunflower,254609,rock,2018,4.744,-4.23
+Travis Scott,Sicko Mode,153584,r&b,2004,4.301,-6.61
+Olivia Rodrigo,Good 4 U,292223,electronic,2024,4.37,-6.11
+Charlie Puth,We Don't Talk Anymore,171696,pop,2000,3.2,-7.32
+Lewis Capaldi,Someone You Loved,158783,r&b,2000,2.853,-11.91
+Ed Sheeran,Shape of You,274902,rock,2017,2.501,-11.52
+Dua Lipa,Levitating,170927,r&b,2005,4.186,-4.32
+Ed Sheeran,Shape of You,185085,alternative,2015,2.227,-6.5
+Bruno Mars,That's What I Like,236638,alternative,2009,4.796,-10.73
+Shawn Mendes,Treat You Better,150566,electronic,2013,2.111,-9.96
+The Weeknd,Blinding Lights,208524,hip hop,2010,3.507,-6.19
+Queen,Bohemian Rhapsody,255275,hip hop,2018,2.141,-11.5
+Olivia Rodrigo,Good 4 U,244892,hip hop,2006,2.748,-4.27
+Billie Eilish,Bad Guy,187024,r&b,2002,4.225,-11.77
+Travis Scott,Sicko Mode,168514,electronic,2019,2.616,-11.21
+Billie Eilish,Bad Guy,279741,r&b,2022,2.69,-5.99
+Bruno Mars,That's What I Like,229731,r&b,2002,2.766,-5.92
+Kendrick Lamar,HUMBLE.,293962,hip hop,2002,2.159,-8.03
+XXXTentacion,Sad!,166828,rock,2004,4.382,-7.3
+SZA,Kill Bill,257281,alternative,2010,4.619,-6.06
+Charlie Puth,We Don't Talk Anymore,260416,pop,2010,3.055,-4.57
+Queen,Bohemian Rhapsody,205186,electronic,2020,2.976,-11.47
+Mike Posner,I Took a Pill in Ibiza,287886,rock,2021,3.461,-9.86
+Bruno Mars,That's What I Like,229768,pop,2016,2.468,-11.78
+Ed Sheeran,Shape of You,230270,r&b,2010,2.987,-4.51
+Ariana Grande,7 Rings,256366,pop,2006,4.847,-11.35
+Post Malone,Sunflower,266708,alternative,2007,4.102,-10.59
+Adele,Easy On Me,225699,r&b,2015,2.129,-9.31
+Mike Posner,I Took a Pill in Ibiza,184121,alternative,2020,2.224,-9.75
+XXXTentacion,Sad!,212861,pop,2021,4.727,-10.39
+Kendrick Lamar,HUMBLE.,208640,alternative,2009,3.749,-5.02
+Billie Eilish,Bad Guy,285187,alternative,2023,3.523,-8.7
+Mike Posner,I Took a Pill in Ibiza,158887,r&b,2003,2.718,-10.27
+Lewis Capaldi,Someone You Loved,166514,alternative,2001,4.337,-7.52
+Dua Lipa,Levitating,268747,pop,2013,3.665,-6.89
+Dua Lipa,Levitating,157616,rock,2003,3.228,-11.2
+The Weeknd,Blinding Lights,184366,r&b,2008,2.448,-8.24
+Ariana Grande,7 Rings,185474,electronic,2000,4.342,-4.9
+Coldplay,Yellow,157387,hip hop,2023,2.575,-8.54
+Coldplay,Yellow,187258,r&b,2000,4.255,-5.47
+Eminem,Lose Yourself,284588,electronic,2019,2.373,-10.38
+Charlie Puth,We Don't Talk Anymore,269863,pop,2005,4.588,-6.78
+Billie Eilish,Bad Guy,194001,rock,2023,2.38,-6.75
+Adele,Easy On Me,181133,r&b,2015,4.79,-9.5
+Bruno Mars,That's What I Like,194798,pop,2012,2.096,-8.08
+Bad Bunny,Dakiti,291110,r&b,2024,4.449,-9.6
+Bruno Mars,That's What I Like,282637,pop,2001,4.49,-7.97
+Lewis Capaldi,Someone You Loved,279650,hip hop,2019,2.1,-7.7
+Mike Posner,I Took a Pill in Ibiza,245424,hip hop,2013,3.017,-6.18
+Imagine Dragons,Believer,193196,alternative,2006,2.342,-9.53
+Harry Styles,As It Was,201413,electronic,2002,2.107,-9.89
+Coldplay,Yellow,184036,r&b,2003,3.276,-6.8
+Coldplay,Yellow,191160,rock,2010,4.847,-9.94
+Charlie Puth,We Don't Talk Anymore,189066,hip hop,2014,2.915,-5.88
+SZA,Kill Bill,161053,alternative,2024,2.049,-5.16
+Travis Scott,Sicko Mode,176281,r&b,2023,3.065,-9.42
+XXXTentacion,Sad!,206219,pop,2015,2.761,-8.08
+Maroon 5,Memories,277251,hip hop,2017,4.573,-10.95
+Kendrick Lamar,HUMBLE.,196501,hip hop,2010,4.196,-5.53
+Justin Bieber,Love Yourself,235550,hip hop,2024,3.134,-5.94
+XXXTentacion,Sad!,159346,alternative,2014,3.72,-7.02
+Mike Posner,I Took a Pill in Ibiza,225059,pop,2009,2.291,-9.03
+Bad Bunny,Dakiti,219745,electronic,2021,4.165,-5.12
+Charlie Puth,We Don't Talk Anymore,166247,pop,2005,4.269,-7.88
+Adele,Easy On Me,275070,alternative,2015,3.954,-9.34
+Doja Cat,Kiss Me More,220198,r&b,2006,2.969,-9.22
+Bruno Mars,That's What I Like,181124,hip hop,2005,4.084,-8.78
+Lady Gaga,Shallow,192558,alternative,2017,4.933,-11.41
+Olivia Rodrigo,Good 4 U,181554,alternative,2016,4.725,-8.79
+Post Malone,Sunflower,200345,rock,2022,4.515,-10.1
+Doja Cat,Kiss Me More,229687,pop,2015,3.196,-4.64
+Harry Styles,As It Was,297772,electronic,2021,3.515,-8.95
+XXXTentacion,Sad!,205289,pop,2004,3.789,-11.27
+Lewis Capaldi,Someone You Loved,278671,hip hop,2024,3.174,-9.72
+Eminem,Lose Yourself,246910,pop,2020,2.459,-11.21
+Taylor Swift,Cruel Summer,162198,alternative,2004,3.227,-9.65
+Adele,Easy On Me,198978,rock,2024,2.297,-5.74
+The Weeknd,Blinding Lights,276235,alternative,2019,4.951,-7.43
+Olivia Rodrigo,Good 4 U,269196,alternative,2023,3.85,-4.63
+Ariana Grande,7 Rings,283152,pop,2002,2.4,-6.91
+Ed Sheeran,Shape of You,159626,rock,2009,4.992,-6.68
+Coldplay,Yellow,236190,r&b,2008,4.986,-8.12
+Justin Bieber,Love Yourself,211935,pop,2019,4.197,-9.78
+Post Malone,Sunflower,241228,r&b,2012,3.68,-9.96
+The Weeknd,Blinding Lights,232483,electronic,2009,2.616,-11.48
+Taylor Swift,Cruel Summer,151676,hip hop,2017,3.998,-10.05
+Harry Styles,As It Was,179475,pop,2004,4.108,-6.18
+Adele,Easy On Me,152473,r&b,2014,4.766,-8.86
+Queen,Bohemian Rhapsody,221688,electronic,2013,4.102,-11.97
+Dua Lipa,Levitating,204196,hip hop,2000,3.33,-5.02
+Kendrick Lamar,HUMBLE.,288248,rock,2018,4.159,-8.7
+Travis Scott,Sicko Mode,197926,r&b,2021,4.117,-11.99
+Shawn Mendes,Treat You Better,155189,rock,2001,3.925,-9.92
+Eminem,Lose Yourself,258440,alternative,2010,4.343,-5.08
+Justin Bieber,Love Yourself,276638,electronic,2016,4.779,-7.65
+SZA,Kill Bill,216711,r&b,2009,3.451,-11.36
+Travis Scott,Sicko Mode,192317,hip hop,2009,2.389,-6.78
+Billie Eilish,Bad Guy,164350,pop,2002,4.025,-10.04
+Imagine Dragons,Believer,202137,rock,2020,3.959,-11.09
+Travis Scott,Sicko Mode,155206,alternative,2009,2.853,-8.68
+Billie Eilish,Bad Guy,170764,electronic,2002,4.66,-11.69
+Adele,Easy On Me,237792,r&b,2021,3.253,-10.75
+Coldplay,Yellow,228889,rock,2008,2.945,-6.21
+Coldplay,Yellow,247670,hip hop,2016,4.466,-7.58
+Harry Styles,As It Was,161676,rock,2010,4.139,-4.03
+Doja Cat,Kiss Me More,252590,hip hop,2010,3.099,-6.59
+Eminem,Lose Yourself,289651,hip hop,2008,4.302,-6.76
+Bad Bunny,Dakiti,216343,r&b,2004,3.04,-7.57
+Post Malone,Sunflower,266877,electronic,2010,4.387,-7.87
+Travis Scott,Sicko Mode,220361,electronic,2022,4.394,-4.7
+Harry Styles,As It Was,229415,alternative,2018,3.925,-10.88
+SZA,Kill Bill,292321,hip hop,2001,4.661,-6.33
+Drake,God's Plan,188278,hip hop,2011,2.717,-8.34
+XXXTentacion,Sad!,260983,pop,2007,4.22,-5.49
+Eminem,Lose Yourself,282879,hip hop,2013,3.397,-11.35
+Ed Sheeran,Shape of You,231735,alternative,2005,2.89,-9.36
+Queen,Bohemian Rhapsody,240463,rock,2002,4.06,-5.67
+Bruno Mars,That's What I Like,256528,electronic,2018,2.041,-6.79
+Lewis Capaldi,Someone You Loved,243480,hip hop,2003,2.545,-11.14
+SZA,Kill Bill,178556,rock,2006,2.449,-11.27
+Harry Styles,As It Was,191439,electronic,2020,3.369,-9.19
+Adele,Easy On Me,170610,r&b,2020,3.491,-6.4
+Ariana Grande,7 Rings,297445,rock,2019,3.383,-10.82
+Olivia Rodrigo,Good 4 U,237658,hip hop,2020,4.41,-9.67
+Shawn Mendes,Treat You Better,190705,pop,2024,2.205,-4.83
+Lady Gaga,Shallow,294446,hip hop,2003,3.726,-9.54
+Adele,Easy On Me,249126,alternative,2019,4.827,-11.11
+Charlie Puth,We Don't Talk Anymore,248694,r&b,2017,2.09,-7.86
+Travis Scott,Sicko Mode,278120,alternative,2023,4.99,-4.63
+Travis Scott,Sicko Mode,219477,electronic,2015,3.087,-7.92
+Charlie Puth,We Don't Talk Anymore,262343,rock,2020,3.476,-4.4
+Shawn Mendes,Treat You Better,190089,pop,2004,2.784,-5.28
+Doja Cat,Kiss Me More,161324,hip hop,2022,2.165,-5.4
+Mike Posner,I Took a Pill in Ibiza,176961,pop,2007,2.779,-10.54
+Drake,God's Plan,190895,electronic,2009,3.629,-6.91
+Charlie Puth,We Don't Talk Anymore,278394,r&b,2000,2.66,-6.3
+Ariana Grande,7 Rings,155572,rock,2011,3.428,-8.17
+Billie Eilish,Bad Guy,269974,hip hop,2010,2.157,-10.59
+Charlie Puth,We Don't Talk Anymore,283443,alternative,2016,3.776,-6.6
+Taylor Swift,Cruel Summer,242238,alternative,2002,3.133,-10.44
+The Weeknd,Blinding Lights,263994,pop,2024,4.587,-10.13
+Charlie Puth,We Don't Talk Anymore,241121,pop,2004,4.164,-8.84
+Doja Cat,Kiss Me More,251646,r&b,2014,3.506,-9.71
+Dua Lipa,Levitating,155412,alternative,2006,4.392,-11.2
+Lady Gaga,Shallow,174949,electronic,2003,2.463,-7.28
+Lewis Capaldi,Someone You Loved,246646,r&b,2001,4.728,-5.1
+Shawn Mendes,Treat You Better,276644,electronic,2007,2.42,-6.46
+Bruno Mars,That's What I Like,219593,pop,2004,3.711,-5.9
+Kendrick Lamar,HUMBLE.,187600,electronic,2022,4.546,-8.33
+Drake,God's Plan,203288,pop,2001,3.184,-9.37
+Lewis Capaldi,Someone You Loved,177966,pop,2015,4.39,-4.81
+Kendrick Lamar,HUMBLE.,180545,r&b,2013,3.294,-9.72
+Billie Eilish,Bad Guy,257800,hip hop,2023,3.314,-5.35
+Olivia Rodrigo,Good 4 U,192697,rock,2023,3.9,-6.87
+Maroon 5,Memories,251120,pop,2004,4.098,-7.54
+Adele,Easy On Me,276337,alternative,2003,2.037,-4.92
+Bad Bunny,Dakiti,192989,pop,2004,4.744,-6.53
+Charlie Puth,We Don't Talk Anymore,173830,alternative,2018,2.868,-9.97
+SZA,Kill Bill,189486,alternative,2000,2.983,-8.12
+Bruno Mars,That's What I Like,260666,alternative,2020,3.089,-4.78
+Doja Cat,Kiss Me More,216680,rock,2007,4.715,-5.74
+The Weeknd,Blinding Lights,175047,rock,2006,2.993,-9.43
+Adele,Easy On Me,205227,rock,2016,4.553,-8.16
+Doja Cat,Kiss Me More,181488,r&b,2016,3.482,-9.66
