@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-// Ultima alteração 11:51, 10/06
+// Ultima alteracao 16:30, 10/06
 // Os itens comentados estao incompletos
 
 
@@ -57,7 +57,23 @@ struct Musicas {
 
 };
 
-
+void ordenarANO(int tam, int vetor_pos, Musicas vet) {
+    int menor, aux;
+    for(int i = 0; i < tam -1; i++) {
+        menor = i;
+        for (int j = i+1; j < tam; j++) {
+            if(vet[j].ano < vet[menor].ano) {
+                menor = j;
+            }
+        }
+        aux = i;
+        vetor_pos[i] = menor;
+        vetor_pos[menor] = aux;
+    }
+    for(int k = 0; k < tam; k++) {
+        vet[vetor_pos[k]].imprimir();
+    }
+}
 
 
 
@@ -69,7 +85,7 @@ void buscas(int buscar, Musicas &vetor) {
         }
 
         if (buscar == 2) {
-            
+
 
 
         }
@@ -87,6 +103,8 @@ int main () {
     int numMsc;
     string lixo;
 
+
+
     ifstream arquivo_csv("spotify100.csv"); //abertura do arquivo
 
     if(!arquivo_csv) {
@@ -98,16 +116,12 @@ int main () {
         arquivo_csv >> lixo;
 
         Musicas *musicAdd = new Musicas[numMsc];
-        string *nome_Musica = new string[numMsc];
-        string *nome_artista = new string[numMsc];
-
+        
         
         for(int i = 0; i < numMsc; i++) {
 
             musicAdd[i].leitura(arquivo_csv, musicAdd[i]);
-            nome_Musica[i] = musicAdd[i].nomeMsc;
-            nome_artista[i] = musicAdd[i].artista;
-
+    
         }
 
         //for(int i = 0)
@@ -123,7 +137,7 @@ int main () {
             cout << "------------------------" << endl;
             cout << "O que voce deseja buscar? " << endl;
             cout << "------------------------" << endl;
-            cout << "[1] Imprimir" << endl << "[2] Buscar por nome" << endl << "[3] Buscar por artista" << endl << "[4] Buscar por número de streams" <<
+            cout << "[1] Imprimir" << endl << "[2] Buscar por ano" << endl << "[3] Buscar por artista" << endl << "[4] Buscar por numero de streams" <<
             endl << "[5] Sair" << endl; 
 
             cin >> busca;
@@ -134,10 +148,15 @@ int main () {
                 }
             }
             else if(busca == 2) {
-                string buscaMusica;
-                getline(cin, buscaMusica);
+                int buscaAno;
+                cin >> buscaAno;
 
-                //buscas(busca, nome_Musica);
+                int *vetor = new int[numMsc];
+                for(int i = 0; i < numMsc; i++) vetor[i] = i;
+
+                ordenarANO(numMsc, vetor, musicAdd)
+                
+                
 
 
 
@@ -158,7 +177,7 @@ int main () {
         
 
 
-        delete[] nome_Musica;
+
         delete[] musicAdd;
     }
     
