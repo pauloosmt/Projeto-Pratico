@@ -2,6 +2,11 @@
 #include <fstream>
 #include <string>
 
+// Ultima alteração 11:51, 10/06
+// Os itens comentados estao incompletos
+
+
+
 using namespace std;
 
 
@@ -47,21 +52,33 @@ struct Musicas {
 
     }
 
-    void buscas(int buscar) {
+   
+
+
+};
+
+
+
+
+
+
+void buscas(int buscar, Musicas &vetor) {
 
         if (buscar == 1) {
-                imprimir();
+                vetor.imprimir();
         }
 
+        if (buscar == 2) {
+            
+
+
+        }
 
 
 
     }
 
 
-
-
-};
 
 
 
@@ -81,13 +98,24 @@ int main () {
         arquivo_csv >> lixo;
 
         Musicas *musicAdd = new Musicas[numMsc];
+        string *nome_Musica = new string[numMsc];
+        string *nome_artista = new string[numMsc];
 
         
         for(int i = 0; i < numMsc; i++) {
 
             musicAdd[i].leitura(arquivo_csv, musicAdd[i]);
+            nome_Musica[i] = musicAdd[i].nomeMsc;
+            nome_artista[i] = musicAdd[i].artista;
 
         }
+
+        //for(int i = 0)
+
+
+        
+
+
 
         int busca = 0;
 
@@ -100,18 +128,37 @@ int main () {
 
             cin >> busca;
 
-            musicAdd[0].buscas(busca);
+            if(busca == 1) {
+                for(int i =0; i < numMsc; i++) {
+                    buscas(busca, musicAdd[i]);
+                }
+            }
+            else if(busca == 2) {
+                string buscaMusica;
+                getline(cin, buscaMusica);
+
+                //buscas(busca, nome_Musica);
+
+
+
+            }
+        
+        
+
+            
+            
             
             
         }
 
 
-
+       
+            
 
         
 
 
-    
+        delete[] nome_Musica;
         delete[] musicAdd;
     }
     
