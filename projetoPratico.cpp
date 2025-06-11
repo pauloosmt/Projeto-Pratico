@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 
-// Ultima alteracao 19:54, 10/06
-// Por Paulo;
+// Ultima alteração 20:36, 11/06
+// Por João;
 
 
 
@@ -56,6 +56,48 @@ struct Musicas {
 
 
 };
+
+void ordenarMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[]){
+	//selection sort pra ordenar as musicas em ordem alfabetica
+	string aux;
+	int aux2;
+	for(int i = 0; i < tam - 1; i++){
+		int indice_menor = i;
+		for(int j = i + 1; j < tam; j++)
+			if(vet[j] < vet[indice_menor])
+				indice_menor = j;
+		aux = vet[i];
+		vet[i] = vet[indice_menor];
+		vet[indice_menor] = aux;
+	//ordenando o vetor auxiliar que tem os indices de cada musica no vetor original junto
+		aux2 = vet_aux[i];
+		vet_aux[i] = vet_aux[indice_menor];
+		vet_aux[indice_menor] = aux2;
+	}
+	//busca binaria simples pra encontrar a musica
+	int posicao_inicial = 0, posicao_final = (tam-1), meio, posicao_desejada = -1;
+	while(posicao_inicial <= posicao_final){
+		meio = (posicao_inicial + posicao_final) / 2;
+		if(musica == vet[meio]){
+			posicao_desejada = meio;
+			posicao_inicial = posicao_final + 1;
+		}
+		else{
+			if(musica > vet[meio])
+				posicao_inicial = meio + 1;
+			else
+				posicao_final = meio - 1;
+		}
+	}
+	// imprime a musica desejada ou mensagem de erro caso ela n exista no arquivo
+	if(posicao_desejada != -1)
+		musicAdd[vet_aux[posicao_desejada]].imprimir();
+	else{
+		cout << "Nao Existe essa musica no arquivo!" << endl;
+	}
+}
+
+
 
 void ordenarANO(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocasioes) {
     //Primeira parte: Ordenação dos anos
@@ -191,11 +233,11 @@ int main () {
             cout << "------------------------" << endl;
             cout << "O que voce deseja buscar? " << endl;
             cout << "------------------------" << endl;
-            cout << "[1] Imprimir" << endl << "[2] Buscar por ano" << endl << "[3] Buscar por artista" << endl << "[4] Buscar por numero de streams" <<
+            cout << "[1] Imprimir" << endl << "[2] Buscar por ano" << endl << "[3] Buscar por artista" << endl << "[4] Buscar por nome da musica" <<
             endl << "[5] Sair" << endl; 
 
             cin >> busca;
-
+		
             if(busca == 1) {
                 for(int i =0 ; i < numMsc; i++) {
                     buscas(busca, musicAdd[i]);
@@ -242,7 +284,30 @@ int main () {
                 delete[] vetorAno;
             }
         
-        
+			else if(busca == 3){
+			}
+			
+			
+			else if(busca == 4){
+				string buscaMusica;
+				cin.ignore();
+				getline(cin,buscaMusica);
+					
+					
+				int* vet_aux = new int[numMsc];
+				string* vetorMusica = new string[numMsc];
+					
+				for(int i = 0; i < numMsc; i++){
+					vetorMusica[i] = musicAdd[i].nomeMsc;
+					vet_aux[i] = i;
+				}
+				ordenarMusica(numMsc,vetorMusica,buscaMusica,vet_aux,musicAdd);
+					
+					
+					
+				delete[] vet_aux;
+				delete[] vetorMusica;
+			}
 
             
             
