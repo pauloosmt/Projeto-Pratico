@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-// Ultima alteração 12:06, 12/06
+// Ultima alteração 18:04, 12/06
 // Por Paulo;
 
 
@@ -21,6 +21,7 @@ struct Musicas {
     double volumeMedio;
 
     void imprimir(){
+        cout << endl;
         cout << artista << endl;
         cout << nomeMsc << endl;
         cout << duracaoMs << endl;
@@ -35,6 +36,8 @@ struct Musicas {
 
     void leitura (ifstream& arquivo, Musicas &musicAdd)  {
             string lixo;
+            arquivo.ignore();
+            arquivo.ignore();
             getline(arquivo, musicAdd.artista, ',');
             getline(arquivo, musicAdd.nomeMsc, ',');
             arquivo >> musicAdd.anoLancamento;
@@ -201,30 +204,32 @@ void Adicionar(Musicas *&vetor, int &tam, int adicional) {
         temp[i].volumeMedio = vetor[i].volumeMedio;
     }
     for(int i = tam - adicional; i < tam; i++) {
-        cout << "Nome do Artista: ";
+        cout << endl << "Nome do Artista: ";
         cin.ignore();
         getline(cin, temp[i].artista);
-        cout << endl << "Nome da Musica: ";
+        cout  << "Nome da Musica: ";
         getline(cin, temp[i].nomeMsc);
-        cout << endl << "Duracao da Musica: ";
+        cout << "Duracao da Musica: ";
         cin >> temp[i].duracaoMs;
-        cout << endl << "Genero da Musica: ";
+        cout << "Genero da Musica: ";
         cin.ignore();
         getline(cin, temp[i].generoMusical);
-        cout << endl << "Ano do Lancamento da Musica: ";
+        cout  << "Ano do Lancamento da Musica: ";
         cin >> temp[i].anoLancamento;
-        cout << endl << "Numero de Streams da Musica: ";
+        cout << "Numero de Streams da Musica: ";
         cin >> temp[i].streams;
-        cout << endl << "Volume Medio da Musica: ";
+        cout  << "Volume Medio da Musica: ";
         cin >> temp[i].volumeMedio;
 
     }
 
     delete[]vetor;
     vetor = temp;
+    cout<< endl;
     cout<< "--------------------------------" << endl;
     cout<< "Musicas adicionadas com sucesso" << endl;
     cout<< "--------------------------------" << endl;
+    cout<< endl;
 
     return;
 }
@@ -278,6 +283,7 @@ int main () {
             }
             else if(busca == "2") {
                 int buscaAno;
+                cout << "Qual ano vc deseja buscar?: ";
                 cin >> buscaAno;
 
                 //Vetores auxiliares que ajudarao na ordenacao
@@ -344,6 +350,7 @@ int main () {
 
             else if(busca == "5") {
                 int msc_add;
+                cout<< "Quantas músicas serão adicionadas?: ";
                 cin >> msc_add;
 
                 Adicionar(musicAdd, numMsc, msc_add);
