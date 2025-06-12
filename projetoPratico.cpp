@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 
-// Ultima alteração 20:36, 11/06
-// Por João;
+// Ultima alteração 12:06, 12/06
+// Por Paulo;
 
 
 
@@ -178,23 +178,56 @@ void ordenarANO(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocasioes
 
 
 
-void buscas(int buscar, Musicas &vetor) {
+void buscas(string buscar, Musicas &vetor) {
 
-        if (buscar == 1) {
+        if (buscar == "1") {
                 vetor.imprimir();
         }
+        
+    }
 
-        if (buscar == 2) {
+void Adicionar(Musicas *&vetor, int &tam, int adicional) {
+    tam += adicional;
 
+    Musicas *temp = new Musicas[tam];
 
-
-        }
-
-
+    for(int i =0; i < tam-adicional; i++) {
+        temp[i].artista = vetor[i].artista;
+        temp[i].nomeMsc = vetor[i].nomeMsc;
+        temp[i].duracaoMs = vetor[i].duracaoMs;
+        temp[i].generoMusical = vetor[i].generoMusical;
+        temp[i].anoLancamento = vetor[i].anoLancamento;
+        temp[i].streams = vetor[i].streams;
+        temp[i].volumeMedio = vetor[i].volumeMedio;
+    }
+    for(int i = tam - adicional; i < tam; i++) {
+        cout << "Nome do Artista: ";
+        cin.ignore();
+        getline(cin, temp[i].artista);
+        cout << endl << "Nome da Musica: ";
+        getline(cin, temp[i].nomeMsc);
+        cout << endl << "Duracao da Musica: ";
+        cin >> temp[i].duracaoMs;
+        cout << endl << "Genero da Musica: ";
+        cin.ignore();
+        getline(cin, temp[i].generoMusical);
+        cout << endl << "Ano do Lancamento da Musica: ";
+        cin >> temp[i].anoLancamento;
+        cout << endl << "Numero de Streams da Musica: ";
+        cin >> temp[i].streams;
+        cout << endl << "Volume Medio da Musica: ";
+        cin >> temp[i].volumeMedio;
 
     }
 
+    delete[]vetor;
+    vetor = temp;
+    cout<< "--------------------------------" << endl;
+    cout<< "Musicas adicionadas com sucesso" << endl;
+    cout<< "--------------------------------" << endl;
 
+    return;
+}
 
 
 
@@ -227,23 +260,23 @@ int main () {
 
 
 
-        int busca = 0;
+        string busca;
 
-        while(busca != 5){
+        while(busca != "6"){
             cout << "------------------------" << endl;
-            cout << "O que voce deseja buscar? " << endl;
+            cout << "O que voce deseja? " << endl;
             cout << "------------------------" << endl;
             cout << "[1] Imprimir" << endl << "[2] Buscar por ano" << endl << "[3] Buscar por artista" << endl << "[4] Buscar por nome da musica" <<
-            endl << "[5] Sair" << endl; 
+            endl << "[5] Adicionar Musicas" << endl << "[6] Sair" << endl; 
 
             cin >> busca;
 		
-            if(busca == 1) {
+            if(busca == "1") {
                 for(int i =0 ; i < numMsc; i++) {
                     buscas(busca, musicAdd[i]);
                 }
             }
-            else if(busca == 2) {
+            else if(busca == "2") {
                 int buscaAno;
                 cin >> buscaAno;
 
@@ -284,11 +317,11 @@ int main () {
                 delete[] vetorAno;
             }
         
-			else if(busca == 3){
+			else if(busca == "3"){
 			}
 			
-			
-			else if(busca == 4){
+			      
+			else if(busca == "4"){
 				string buscaMusica;
 				cin.ignore();
 				getline(cin,buscaMusica);
@@ -309,6 +342,14 @@ int main () {
 				delete[] vetorMusica;
 			}
 
+            else if(busca == "5") {
+                int msc_add;
+                cin >> msc_add;
+
+                Adicionar(musicAdd, numMsc, msc_add);
+
+
+            }
             
             
             
