@@ -256,5 +256,5 @@ int main() {
     }
 
     delete[] vetor; // Libera a memória alocada
-    return 0; // Fim do programa
+    return 0;
 }
