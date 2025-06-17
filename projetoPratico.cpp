@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
-// Ultima alteração 23:20, 13/06
+// Ultima alteração 22:03, 16/06
 // Por João;
 
 
@@ -10,29 +10,28 @@ using namespace std;
 
 
 struct Musicas {
-    // Campos dos arquivos
-    string artista;
-    string nomeMsc;
-    int duracaoMs;
-    string generoMusical;
-    int anoLancamento;
-    double streams;
-    double volumeMedio;
+    string artista;       // Nome do artista
+    string nomeMsc;       // Nome da música
+    int duracaoMs;        // Duração da música em milissegundos
+    string generoMusical; // Gênero musical
+    int anoLancamento;    // Ano de lançamento
+    double streams;       // Quantidade de streams (em bilhões)
+    double volumeMedio;   // Volume médio da música (em decibéis)
+    bool apagada = false; // Marca se a música foi apagada logicamente
 
-    void imprimir(){
-        cout << endl;
-        cout << artista << endl;
-        cout << nomeMsc << endl;
-        cout << duracaoMs << endl;
-        cout << generoMusical << endl;
-        cout << anoLancamento << endl;
-        cout << streams << endl;
-        cout << volumeMedio << endl;
-
-
-        
-    }
-
+    // Função para imprimir os dados da música
+    void imprimir() {
+        if (!apagada) { // Só imprime se a música não estiver apagada
+            cout << "Artista: " << artista << endl;
+            cout << "Musica: " << nomeMsc << endl;
+            cout << "Duracao: " << duracaoMs << " ms" << endl;
+            cout << "Genero: " << generoMusical << endl;
+            cout << "Ano: " << anoLancamento << endl;
+            cout << "Streams: " << streams << " bilhoes" << endl;
+            cout << "Volume medio: " << volumeMedio << " dB" << endl;
+            cout << "---------------------------" << endl;
+        }
+	}
     void leitura (ifstream& arquivo, Musicas &musicAdd)  {
             string lixo;
             arquivo.ignore();
@@ -48,22 +47,50 @@ struct Musicas {
             getline(arquivo, lixo, ',');
             arquivo >> musicAdd.volumeMedio;
             getline(arquivo, lixo, ';');
-            
-            
-            
-
     }
 
-   
-
-
 };
+// Função para converter uma string para minúsculas
+string toLowerCustom(string str) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') { // Verifica se é letra maiúscula
+            str[i] += 32; // Converte para minúscula (diferença entre ASCII maiúscula e minúscula)
+        }
+    }
+    return str;
+}
+
+// Função para buscar e apagar (logicamente) uma música por nome
+void apagarMusica(Musicas vetor[], int numMsc) {
+    string nomeBusca;
+    cout << "Digite o nome da musica que deseja apagar: ";
+    getline(cin, nomeBusca);
+    nomeBusca = toLowerCustom(nomeBusca); // Converte a busca para minúsculo
+
+    bool encontrou = false; // Flag para verificar se encontrou
+
+    for (int i = 0; i < numMsc; i++) {
+        // Verifica se a música ainda não foi apagada e se o nome bate
+        if (!vetor[i].apagada && toLowerCustom(vetor[i].nomeMsc) == nomeBusca) {
+            vetor[i].apagada = true; // Marca como apagada
+            encontrou = true;
+            cout << "Musica '" << vetor[i].nomeMsc << "' apagada com sucesso!" << endl;
+        }
+    }
+
+    if (!encontrou) {
+        cout << "Nenhuma musica com esse nome foi encontrada!" << endl;
+    }
+}
+
+
+
+
 
 void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],int vet_aux[]){
 	// transformando em minuscula todos os nomes de artistas antes de ordenar
 	for(int i = 0; i < tam; i++)
-		for(unsigned j = 0; j < vet[i].size(); j++)
-			vet[i][j] = tolower(vet[i][j]);
+		vet[i] = toLowerCustom(vet[i]);
 	
 	string aux;
 	int aux2;
@@ -85,7 +112,7 @@ void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],in
 	while(posicao_inicial <= posicao_final){
 		meio = (posicao_inicial + posicao_final) / 2;
 		
-		if(artista == vet[meio]){
+		if((artista == vet[meio]) and (!musicAdd[vet_aux[meio]].apagada)){
 			posicao_desejada = meio;
 			posicao_inicial = posicao_final + 1;
 		}
@@ -100,11 +127,11 @@ void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],in
 	if(posicao_desejada != -1){
 		musicAdd[vet_aux[posicao_desejada]].imprimir();
 		int x = 1, y = 1;
-		while((vet[posicao_desejada + x]) == artista){
+		while(((vet[posicao_desejada + x]) == artista) and (!musicAdd[vet_aux[posicao_desejada + x]].apagada)){
 			musicAdd[vet_aux[posicao_desejada + x]].imprimir();
 			x++;
 		}
-		while((vet[posicao_desejada - y]) == artista){
+		while(((vet[posicao_desejada - y]) == artista) and (!musicAdd[vet_aux[posicao_desejada - y]].apagada)){
 			musicAdd[vet_aux[posicao_desejada - y]].imprimir();
 			y++;
 		}
@@ -123,8 +150,7 @@ void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],in
 void ordenarMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[]){
 	//transformando todas as musicas em minusculo no vetor so de musicas
 	for(int i = 0; i < tam; i++)
-		for(unsigned j = 0; j < vet[i].size(); j++)
-			vet[i][j] = tolower(vet[i][j]);
+		vet[i] = toLowerCustom(vet[i]);
 	
 	
 	//selection sort pra ordenar as musicas em ordem alfabetica
@@ -148,7 +174,7 @@ void ordenarMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
 	int posicao_inicial = 0, posicao_final = (tam-1), meio, posicao_desejada = -1;
 	while(posicao_inicial <= posicao_final){
 		meio = (posicao_inicial + posicao_final) / 2;	
-		if(musica == vet[meio]){
+		if((musica == vet[meio]) and (!musicAdd[vet_aux[meio]].apagada)){
 			posicao_desejada = meio;
 			posicao_inicial = posicao_final + 1;
 		}
@@ -163,11 +189,11 @@ void ordenarMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
 	if(posicao_desejada != -1){
 		musicAdd[vet_aux[posicao_desejada]].imprimir();
 		int x = 1, y = 1;
-		while((vet[posicao_desejada + x]) == musica){
+		while(((vet[posicao_desejada + x]) == musica) and (!musicAdd[vet_aux[posicao_desejada + x]].apagada)){
 			musicAdd[vet_aux[posicao_desejada + x]].imprimir();
 			x++;
 		}
-		while((vet[posicao_desejada - y]) == musica){
+		while(((vet[posicao_desejada - y]) == musica) and (!musicAdd[vet_aux[posicao_desejada - y]].apagada)){
 			musicAdd[vet_aux[posicao_desejada - y]].imprimir();
 			y++;
 		}
@@ -345,12 +371,12 @@ int main () {
 
         string busca;
 
-        while(busca != "7"){
+        while(busca != "8"){
             cout <<"------------------------" << endl;
             cout << "O que voce deseja? " << endl;
             cout << "------------------------" << endl;
             cout << "[1] Imprimir" << endl << "[2] Imprimir trecho especifico" << endl << "[3] Buscar por ano" << endl << "[4] Buscar por artista" << endl << "[5] Buscar por nome da musica" <<
-            endl << "[6] Adicionar Musicas" << endl << "[7] Sair" << endl; 
+            endl << "[6] Adicionar Musicas" << endl << "[7] Remover Musicas" << endl << "[8] Sair" << endl; 
 
             cin >> busca;
 			cin.ignore();
@@ -476,7 +502,9 @@ int main () {
 
             }
             
-            
+            else if(busca == "7"){
+				apagarMusica(musicAdd, numMsc);
+			}
             
             
         }
