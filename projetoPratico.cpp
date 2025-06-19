@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
-// Ultima alteração 22:03, 16/06
-// Por João;
+// Ultima alteração 22:15, 18/06
+// Por Paulo;
 
 
 using namespace std;
