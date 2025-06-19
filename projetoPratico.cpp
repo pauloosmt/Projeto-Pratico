@@ -47,6 +47,7 @@ struct Musicas {
             getline(arquivo, lixo, ',');
             arquivo >> musicAdd.volumeMedio;
             getline(arquivo, lixo, ';');
+
     }
 
 };
@@ -343,31 +344,44 @@ void Adicionar(Musicas *&vetor, int &tam, int adicional) {
 
 int main () {
     int numMsc;
+    int mscLidas;
     string lixo;
-
-
 
     ifstream arquivo_csv("spotify100.csv"); //abertura do arquivo
 
     if(!arquivo_csv) {
         cout << "Erro ao abrir arquivo!" << endl;
+        return 1;
 
     } else {
 
-        arquivo_csv >> numMsc;
+        numMsc = 40; //Capacidade de musicas iniciais
+        mscLidas = 0; //Valor de musicas que ja foram adicionadas no vetor
+
         arquivo_csv >> lixo;
-		//arquivo_csv.ignore();
-        Musicas *musicAdd = new Musicas[numMsc];
-        
-        
-        for(int i = 0; i < numMsc; i++) {
+        Musicas *musicAdd = new Musicas[numMsc]; // Vetor que armazenas as musicas
+        Musicas *temp; // vetor temporario para fazer redimensionamento
 
-            musicAdd[i].leitura(arquivo_csv, musicAdd[i]);
-    
+        while(arquivo_csv.peek() != EOF) {   // peek() != EOF, vai conferir se o ponteiro de leitura esta ou nao no final doa arquivo
+            
+            // Redimensionamento
+            if(mscLidas == numMsc) {
+                numMsc += 5;
+                temp = new Musicas[numMsc];
+
+                for(int i = 0; i < mscLidas; i++) {
+                    temp[i] = musicAdd[i];
+
+                }
+                delete[] musicAdd;
+                musicAdd = temp;
+
+            }
+
+            musicAdd[mscLidas].leitura(arquivo_csv, musicAdd[mscLidas]);
+            mscLidas++;
+
         }
-
-
-
 
         string busca;
 
@@ -397,9 +411,7 @@ int main () {
 				for(int i = posicao_inicial-1; i <= posicao_final-1; i++)
 					musicAdd[i].imprimir();
 			
-			}
-            
-            
+            }
             
             else if(busca == "3") {
                 int buscaAno;
@@ -509,15 +521,9 @@ int main () {
             
         }
 
-
-       
-            
-
-        
-
-
     
         delete[] musicAdd;
+        delete[] temp;
     }
     
     return 0;
