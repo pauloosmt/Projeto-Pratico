@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <algorithm>
-// Ultima alteração 22:15, 18/06
-// Por Paulo;
+
+// Ultima alteração 16:42, 19/06
+// Por João;
 
 
 using namespace std;
@@ -84,11 +84,7 @@ void apagarMusica(Musicas vetor[], int numMsc) {
     }
 }
 
-
-
-
-
-void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],int vet_aux[]){
+void ordenaVetorStrings(string vet[], int tam, int vet_aux[]){
 	// transformando em minuscula todos os nomes de artistas antes de ordenar
 	for(int i = 0; i < tam; i++)
 		vet[i] = toLowerCustom(vet[i]);
@@ -108,6 +104,14 @@ void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],in
 		vet_aux[i] = vet_aux[indice_menor];
 		vet_aux[indice_menor] = aux2;
 	}
+	
+}
+
+
+
+void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[],int vet_aux[]){
+	
+	ordenaVetorStrings(vet,tam,vet_aux);
 	
 	int posicao_inicial = 0, posicao_final = tam - 1, meio, posicao_desejada = -1;
 	while(posicao_inicial <= posicao_final){
@@ -148,28 +152,8 @@ void ordenarArtista(int tam, string vet[], string artista, Musicas musicAdd[],in
 
 
 
-void ordenarMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[]){
-	//transformando todas as musicas em minusculo no vetor so de musicas
-	for(int i = 0; i < tam; i++)
-		vet[i] = toLowerCustom(vet[i]);
-	
-	
-	//selection sort pra ordenar as musicas em ordem alfabetica
-	string aux;
-	int aux2;
-	for(int i = 0; i < tam - 1; i++){
-		int indice_menor = i;
-		for(int j = i + 1; j < tam; j++)
-			if(vet[j] < vet[indice_menor])
-				indice_menor = j;
-		aux = vet[i];
-		vet[i] = vet[indice_menor];
-		vet[indice_menor] = aux;
-	//ordenando o vetor auxiliar que tem os indices de cada musica no vetor original junto
-		aux2 = vet_aux[i];
-		vet_aux[i] = vet_aux[indice_menor];
-		vet_aux[indice_menor] = aux2;
-	}
+void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[]){
+	ordenaVetorStrings(vet,tam,vet_aux);
 	//busca binaria simples pra encontrar a musica
 	
 	int posicao_inicial = 0, posicao_final = (tam-1), meio, posicao_desejada = -1;
@@ -348,7 +332,7 @@ int main () {
     string lixo;
 
     ifstream arquivo_csv("spotify100.csv"); //abertura do arquivo
-
+	
     if(!arquivo_csv) {
         cout << "Erro ao abrir arquivo!" << endl;
         return 1;
@@ -395,11 +379,53 @@ int main () {
             cin >> busca;
 			cin.ignore();
             if(busca == "1") {
-                for(int i =0 ; i < numMsc; i++) {
-                    buscas(busca, musicAdd[i]);
-                }
+                string impressao;
+                while(impressao != "5"){
+					cout << "========IMPRESSAO========" << endl;
+					cout << "  Qual a ordem de impressao?  "<< endl;
+					cout << "[1] Por Streams" << endl << "[2] Por artista" << endl << "[3] Por musica" << endl << "[4] por ano" << endl << "[5] Sair" << endl;
+					cin >> impressao;
+                
+					if(impressao == "1")
+						for(int i =0 ; i < numMsc; i++) 
+							buscas(busca, musicAdd[i]);
+					else if(impressao == "2"){
+						int* vet_aux = new int[numMsc];
+						string* vetorArtista = new string[numMsc];
+				
+						for(int i = 0; i < numMsc; i++){
+							vetorArtista[i] = musicAdd[i].artista;
+							vet_aux[i] = i;
+						}
+						ordenaVetorStrings(vetorArtista, numMsc, vet_aux);
+						for(int i = 0; i < numMsc; i++){
+							musicAdd[vet_aux[i]].imprimir();
+						}
+						delete[] vet_aux;
+						delete[] vetorArtista;
+					
+					}
+					else if(impressao == "3"){
+						int* vet_aux = new int[numMsc];
+						string* vetorMusica = new string[numMsc];
+				
+						for(int i = 0; i < numMsc; i++){
+							vetorMusica[i] = musicAdd[i].nomeMsc;
+							vet_aux[i] = i;
+						}
+						ordenaVetorStrings(vetorMusica, numMsc, vet_aux);
+						for(int i = 0; i < numMsc; i++){
+							musicAdd[vet_aux[i]].imprimir();
+						}
+						delete[] vet_aux;
+						delete[] vetorMusica;
+					}
+					
+				
+				
+				
+				}
             }
-            
             else if(busca == "2") {
 				int posicao_inicial, posicao_final;
 				cout << "Informe o inicio e o fim do trecho" << endl;
@@ -472,7 +498,7 @@ int main () {
 					vetorArtista[i] = musicAdd[i].artista;
 					vet_aux[i] = i;
 				}
-				ordenarArtista(numMsc, vetorArtista, buscaArtista, musicAdd, vet_aux);
+				procuraArtista(numMsc, vetorArtista, buscaArtista, musicAdd, vet_aux);
 			
 			
 			
@@ -496,7 +522,7 @@ int main () {
 					vetorMusica[i] = musicAdd[i].nomeMsc;
 					vet_aux[i] = i;
 				}
-				ordenarMusica(numMsc,vetorMusica,buscaMusica,vet_aux,musicAdd);
+				procuraMusica(numMsc,vetorMusica,buscaMusica,vet_aux,musicAdd);
 					
 					
 					
@@ -523,7 +549,6 @@ int main () {
 
     
         delete[] musicAdd;
-        delete[] temp;
     }
     
     return 0;
