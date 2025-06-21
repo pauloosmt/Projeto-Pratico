@@ -2,9 +2,9 @@
 #include <fstream>
 #include <string>
 
-// Ultima alteração 16:01, 20/06
+// Ultima alteração 13:50, 21/06
 // Por Paulo;
-// Falta comentarios e tem um erro na hora de salvar por artista
+
 
 using namespace std;
 
@@ -200,7 +200,7 @@ void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
 
     else
     {
-        cout << "Nao Existe essa musica no arquivo!" << endl;
+        cout << "Nao existe essa musica no arquivo!" << endl;
     }
 }
 
@@ -257,7 +257,7 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
 
     if (!encontrado)
     {
-        cout << "ERRO! Não foi possivel achar uma musica na lista lancada em " << anoBusca << "!!!" << endl;
+        cout << "ERRO! Não foi possivel achar uma musica na lista lançada em " << anoBusca << "!!!" << endl;
         return;
     }
 
@@ -303,7 +303,7 @@ void buscas(string buscar, Musicas &vetor)
     }
 }
 
-void Adicionar(Musicas *&vetor, int &tam, int adicional)
+void adicionar(Musicas *&vetor, int &tam, int adicional)
 {
     tam += adicional;
 
@@ -343,29 +343,30 @@ void Adicionar(Musicas *&vetor, int &tam, int adicional)
     delete[] vetor;
     vetor = temp;
     cout << endl;
-    cout << "--------------------------------" << endl;
+    cout << "===============================" << endl;
     cout << "Musicas adicionadas com sucesso" << endl;
-    cout << "--------------------------------" << endl;
+    cout << "===============================" << endl;
     cout << endl;
 
     return;
 }
 
-void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo)
+void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[])
 {
 
     arquivo << "artist,song,year,genre,streams_billion,duration_ms,loudness_dB;";
 
     for (int i = 0; i < tam; i++)
     {
+        if(!musicAdd[i].apagada)
         arquivo << "\n"
-                << musicAdd[i].artista << ","
-                << musicAdd[i].nomeMsc << ","
-                << musicAdd[i].anoLancamento << ","
-                << musicAdd[i].generoMusical << ","
-                << musicAdd[i].streams << ","
-                << musicAdd[i].duracaoMs << ","
-                << musicAdd[i].volumeMedio << ";";
+                << musicAdd[vetor_pos[i]].artista << ","
+                << musicAdd[vetor_pos[i]].nomeMsc << ","
+                << musicAdd[vetor_pos[i]].anoLancamento << ","
+                << musicAdd[vetor_pos[i]].generoMusical << ","
+                << musicAdd[vetor_pos[i]].streams << ","
+                << musicAdd[vetor_pos[i]].duracaoMs << ","
+                << musicAdd[vetor_pos[i]].volumeMedio << ";";
     }
 }
 
@@ -417,9 +418,9 @@ int main()
 
         while (busca != "9")
         {
-            cout << "------------------------" << endl;
-            cout << "O que voce deseja? " << endl;
-            cout << "------------------------" << endl;
+            cout << "=======================" << endl;
+            cout << " Como posso te ajudar? " << endl;
+            cout << "=======================" << endl;
             cout << "[1] Imprimir" << endl
                  << "[2] Imprimir trecho especifico" << endl
                  << "[3] Buscar por ano" << endl
@@ -611,7 +612,7 @@ int main()
                 cout << "Quantas músicas serão adicionadas?: ";
                 cin >> msc_add;
 
-                Adicionar(musicAdd, numMsc, msc_add);
+                adicionar(musicAdd, numMsc, msc_add);
             }
 
             else if (busca == "7")
@@ -626,8 +627,8 @@ int main()
                 {
                     cout << "================SALVAR================" << endl;
                     cout << " Onde você deseja salvar as alteracoes? " << endl;
-                    cout << "[1] Salvar no vetor original" << endl
-                         << "[2] Exportar para um arquivo" << endl
+                    cout << "[1] Exportar para um arquivo binario" << endl
+                         << "[2] Exportar para um arquivo CSV" << endl
                          << "[3] Voltar" << endl;
                     cout << " > ";
                     cin >> salvar;
@@ -636,10 +637,13 @@ int main()
                     }
                     else if (salvar == "2")
                     {
+                        ofstream arquivo_saida("arquivoSaidaTeste.csv");
                         string ordem_opcao;
-                        while (ordem_opcao != "5")
+                        bool salvar = false;
+                        while (!salvar)
                         {
-                            cout << "==================" << endl;
+
+                            cout << "===========================" << endl;
                             cout << "Deseja salvar em que ordem?" << endl;
                             cout << "[1] Ordem padrão" << endl
                                  << "[2] Ordenado por Artista" << endl
@@ -651,6 +655,20 @@ int main()
 
                             if (ordem_opcao == "1")
                             {
+
+                                int *vetAux = new int[numMsc];
+                                for(int i = 0; i < numMsc; i++) {
+                                    vetAux[i] = i;
+                                }
+
+                                exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
+
+                                cout << "================================" << endl;
+                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "================================" << endl;
+                                salvar = true;
+
+                                delete[] vetAux;
                             }
                             else if (ordem_opcao == "2")
                             {
@@ -662,24 +680,43 @@ int main()
                                     vetorArtista[i] = musicAdd[i].artista;
                                     vet_aux[i] = i;
                                 }
+
                                 ordenaVetorStrings(vetorArtista, numMsc, vet_aux);
-                                for (int i = 0; i < numMsc; i++)
-                                {
-                                    musicAdd[i].artista = musicAdd[vet_aux[i]].artista;
-                                    musicAdd[i].nomeMsc = musicAdd[vet_aux[i]].nomeMsc;
-                                    musicAdd[i].anoLancamento = musicAdd[vet_aux[i]].anoLancamento;
-                                    musicAdd[i].generoMusical = musicAdd[vet_aux[i]].generoMusical;
-                                    musicAdd[i].streams = musicAdd[vet_aux[i]].streams;
-                                    musicAdd[i].duracaoMs = musicAdd[vet_aux[i]].duracaoMs;
-                                    musicAdd[i].volumeMedio = musicAdd[vet_aux[i]].volumeMedio;
-                                }
+
+                                exportarCSV(numMsc, musicAdd, arquivo_saida, vet_aux);
+
                                 delete[] vet_aux;
                                 delete[] vetorArtista;
-                                ofstream arquivo_saida("arquivoSaidaTeste.csv");
-                                exportarCSV(numMsc, musicAdd, arquivo_saida);
+
+                                cout << "================================" << endl;
+                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "================================" << endl;
+
+                                salvar = true;
                             }
                             else if (ordem_opcao == "3")
                             {
+                                int *vet_aux = new int[numMsc];
+                                string *vetorMusica = new string[numMsc];
+
+                                for (int i = 0; i < numMsc; i++)
+                                {
+                                    vetorMusica[i] = musicAdd[i].nomeMsc;
+                                    vet_aux[i] = i;
+                                }
+                                ordenaVetorStrings(vetorMusica, numMsc, vet_aux);
+
+
+                                exportarCSV(numMsc, musicAdd, arquivo_saida, vet_aux);
+
+                                cout << "==============================" << endl;
+                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "==============================" << endl;
+
+                                salvar = true;
+
+                                delete[] vet_aux;
+                                delete[] vetorMusica;
                             }
                             else if (ordem_opcao == "4")
                             {
@@ -694,25 +731,31 @@ int main()
 
                                 ordenarANO(numMsc, vetAux, vetAnos);
 
-                                Musicas *ordenado = new Musicas[numMsc];
-                                for (int i = 0; i < numMsc; i++)
-                                {
-                                    ordenado[i] = musicAdd[vetAux[i]];
-                                }
-                                delete[] musicAdd;
-                                musicAdd = ordenado;
+                                exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
+
+                                cout << "================================" << endl;
+                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "================================" << endl;
+
+                                salvar = true;
 
                                 delete[] vetAux;
                                 delete[] vetAnos;
+                            }
 
-                                ofstream arquivo_saida("arquivoSaidaTeste.csv");
-                                exportarCSV(numMsc, musicAdd, arquivo_saida);
+                            else if (ordem_opcao == "5")
+                            {
+                                salvar = true;
                             }
                         }
                     }
                 }
             }
         }
+
+        cout << "=============================" << endl;
+        cout << "   Obrigado, volte sempre!   " << endl;
+        cout << "=============================" << endl;
 
         delete[] musicAdd;
     }
