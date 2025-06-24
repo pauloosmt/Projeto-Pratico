@@ -26,12 +26,12 @@ struct Musicas
         { // Só imprime se a música não estiver apagada
             cout << endl;
             cout << "Artista: " << artista << endl;
-            cout << "Musica: " << nomeMsc << endl;
-            cout << "Duracao: " << duracaoMs << " ms" << endl;
+            cout << "Música: " << nomeMsc << endl;
+            cout << "Duração: " << duracaoMs << " ms" << endl;
             cout << "Genero: " << generoMusical << endl;
             cout << "Ano: " << anoLancamento << endl;
-            cout << "Streams: " << streams << " bilhoes" << endl;
-            cout << "Volume medio: " << volumeMedio << " dB" << endl;
+            cout << "Streams: " << streams << " bilhões" << endl;
+            cout << "Volume médio: " << volumeMedio << " dB" << endl;
             cout << "---------------------------" << endl;
         }
     }
@@ -77,7 +77,7 @@ string toLowerCustom(string str)
 void apagarMusica(Musicas vetor[], int numMsc)
 {
     string nomeBusca;
-    cout << "Digite o nome da musica que deseja apagar: ";
+    cout << "Digite o nome da música que deseja apagar: ";
     getline(cin, nomeBusca);
     nomeBusca = toLowerCustom(nomeBusca); // Converte a busca para minúsculo
 
@@ -90,13 +90,13 @@ void apagarMusica(Musicas vetor[], int numMsc)
         {
             vetor[i].apagada = true; // Marca como apagada
             encontrou = true;
-            cout << "Musica '" << vetor[i].nomeMsc << "' apagada com sucesso!" << endl;
+            cout << "\33[1;32mMúsica '" << vetor[i].nomeMsc << "' apagada com sucesso!\033[m" << endl;
         }
     }
 
     if (!encontrou)
     {
-        cout << "Nenhuma musica com esse nome foi encontrada!" << endl;
+        cout << "\033[1;31mNenhuma musica com esse nome foi encontrada!\033[m" << endl;
     }
 }
 
@@ -167,7 +167,7 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
     else
     {
         cout << endl;
-        cout << "Nao existe esse artista no arquivo!!" << endl;
+        cout << "\33[1;31mNão existe esse artista no arquivo!!\33[m" << endl;
         cout << endl;
     }
 }
@@ -214,7 +214,7 @@ void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
     else
     {
         cout << endl;
-        cout << "Nao existe essa musica no arquivo!!" << endl;
+        cout << "\33[1;31mNão existe essa música no arquivo!!\33[m" << endl;
         cout << endl;
     }
 }
@@ -273,7 +273,7 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
     if (!encontrado)
     {
         cout << endl;
-        cout << "\033[7;30;31mERRO! Não foi possivel achar uma musica na lista lançada em " << anoBusca << "!!!\033[m" << endl;
+        cout << "\033[1;31mERRO! Não foi possivel achar uma música na lista lançada em " << anoBusca << "!!!\033[m" << endl;
         cout << endl;
         return;
     }
@@ -342,28 +342,28 @@ void adicionar(Musicas *&vetor, int &tam, int adicional)
         cin.ignore();
         getline(cin, Temp);
         strncpy(temp[i].artista, Temp.c_str(), sizeof(temp[i].artista));
-        cout << "Nome da Musica: ";
+        cout << "Nome da Música: ";
         getline(cin, Temp);
         strncpy(temp[i].nomeMsc, Temp.c_str(), sizeof(temp[i].nomeMsc));
-        cout << "Duracao da Musica: ";
+        cout << "Duração(ms): ";
         cin >> temp[i].duracaoMs;
-        cout << "Genero da Musica: ";
+        cout << "Gênero: ";
         cin.ignore();
         getline(cin, Temp);
         strncpy(temp[i].generoMusical, Temp.c_str(), sizeof(temp[i].generoMusical));
-        cout << "Ano do Lancamento da Musica: ";
+        cout << "Ano do Lançamento: ";
         cin >> temp[i].anoLancamento;
-        cout << "Numero de Streams da Musica: ";
+        cout << "Numero de Streams: ";
         cin >> temp[i].streams;
-        cout << "Volume Medio da Musica: ";
+        cout << "Volume Médio: ";
         cin >> temp[i].volumeMedio;
     }
 
     delete[] vetor;
     vetor = temp;
     cout << endl;
-    cout << "\033[32m===============================" << endl;
-    cout << "Musicas adicionadas com sucesso" << endl;
+    cout << "\033[1;32m===============================" << endl;
+    cout << "Músicas adicionadas com sucesso" << endl;
     cout << "===============================\033[m" << endl;
     cout << endl;
 
@@ -378,6 +378,7 @@ void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[]
     for (int i = 0; i < tam; i++)
     {
         if (!musicAdd[i].apagada)
+        {
             arquivo << "\n"
                     << musicAdd[vetor_pos[i]].artista << ","
                     << musicAdd[vetor_pos[i]].nomeMsc << ","
@@ -386,6 +387,18 @@ void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[]
                     << musicAdd[vetor_pos[i]].streams << ","
                     << musicAdd[vetor_pos[i]].duracaoMs << ","
                     << musicAdd[vetor_pos[i]].volumeMedio << ";";
+        }
+    }
+}
+
+void exportarBIN(int tam, Musicas musicAdd[], ofstream &arquivo)
+{
+    for (int i = 0; i < tam; i++)
+    {
+        if (!musicAdd[i].apagada)
+        {
+            arquivo.write((const char *)&musicAdd[i], sizeof(Musicas));
+        }
     }
 }
 
@@ -398,10 +411,10 @@ int main()
     string modelo_arq;
     while ((modelo_arq != "1") and (modelo_arq != "2"))
     {
-        cout << "================== ARQUIVO ==================" << endl;
-        cout << " Qual arquivo voce deseja abrir para leitura " << endl;
+        cout << "\033[1;33m================== ARQUIVO ==================\033[m" << endl;
+        cout << " Qual arquivo você deseja abrir para leitura " << endl;
         cout << "[1] Arquivo csv" << endl
-             << "[2] Arquivo binario" << endl
+             << "[2] Arquivo binário" << endl
              << "> ";
         cin >> modelo_arq;
     }
@@ -414,7 +427,7 @@ int main()
 
     if (!arquivo)
     {
-        cout << "\033[31mErro ao abrir arquivo!\033[m" << endl;
+        cout << "\033[1;31mErro ao abrir arquivo!\033[m" << endl;
         return 1;
     }
     else
@@ -483,18 +496,18 @@ int main()
 
         while (busca != "9")
         {
-            cout << "=======================" << endl;
+            cout << "\33[1;33m=======================" << endl;
             cout << " Como posso te ajudar? " << endl;
-            cout << "=======================" << endl;
+            cout << "=======================\033[m" << endl;
             cout << "[1] Imprimir" << endl
-                 << "[2] Imprimir trecho especifico" << endl
+                 << "[2] Imprimir trecho específico" << endl
                  << "[3] Buscar por ano" << endl
                  << "[4] Buscar por artista" << endl
-                 << "[5] Buscar por nome da musica" << endl
+                 << "[5] Buscar por nome da música" << endl
                  << "[6] Adicionar Musicas" << endl
-                 << "[7] Remover Musicas" << endl
-                 << "[8] Salvar alteracoes" << endl
-                 << "[9] Sair" << endl
+                 << "[7] Remover Músicas" << endl
+                 << "[8] Salvar alterações" << endl
+                 << "\033[1;31m[9] Sair\033[m" << endl
                  << "> ";
 
             cin >> busca;
@@ -504,19 +517,20 @@ int main()
                 string impressao;
                 while (impressao != "5")
                 {
-                    cout << "========IMPRESSAO========" << endl;
-                    cout << "  Qual a ordem de impressao?  " << endl;
-                    cout << "[1] Ordem padrao" << endl
+                    cout << "\33[1;33m========IMPRESSÃO========\33[m" << endl;
+                    cout << "  Qual a ordem de impressão?  " << endl;
+                    cout << "[1] Ordem padrão" << endl
                          << "[2] Por artista" << endl
-                         << "[3] Por musica" << endl
+                         << "[3] Por música" << endl
                          << "[4] Por ano" << endl
-                         << "[5] Sair" << endl
+                         << "\033[1;31m[5] Sair\033[m" << endl
                          << "> ";
                     cin >> impressao;
 
                     if (impressao == "1")
                         for (int i = 0; i < numMsc; i++)
                             musicAdd[i].imprimir();
+                    
                     else if (impressao == "2")
                     {
                         int *vet_aux = new int[numMsc];
@@ -584,15 +598,16 @@ int main()
                 cout << "Fim: ";
                 cin >> posicao_final;
 
-
-                if((posicao_inicial > 0 and posicao_inicial <= numMsc) and (posicao_final > 0 and posicao_final <= numMsc) and (posicao_inicial <= posicao_final)) {
+                if ((posicao_inicial > 0 and posicao_inicial <= numMsc) and (posicao_final > 0 and posicao_final <= numMsc) and (posicao_inicial <= posicao_final))
+                {
                     for (int i = posicao_inicial - 1; i <= posicao_final - 1; i++)
                         musicAdd[i].imprimir();
                 }
-                else {
+                else
+                {
                     cout << endl;
                     cout << "\033[1;31m----------------------------------" << endl;
-                    cout << "Trecho invalido, tente novamente!!" << endl;
+                    cout << "Trecho inválido, tente novamente!!" << endl;
                     cout << "----------------------------------\033[m" << endl;
                     cout << endl;
                 }
@@ -601,7 +616,7 @@ int main()
             else if (busca == "3")
             {
                 int buscaAno;
-                cout << "Digite o ano que voce deseja buscar: ";
+                cout << "Digite o ano que você deseja buscar: ";
                 cin >> buscaAno;
 
                 // Vetores auxiliares que ajudarao na ordenacao
@@ -660,7 +675,7 @@ int main()
             else if (busca == "5")
             {
                 string buscaMusica;
-                cout << "Qual o nome da musica: ";
+                cout << "Qual o nome da música: ";
                 getline(cin, buscaMusica);
                 // transformando a string busca pra minuscula
                 buscaMusica = toLowerCustom(buscaMusica);
@@ -682,7 +697,7 @@ int main()
             else if (busca == "6")
             {
                 int msc_add;
-                cout << "Quantas músicas serão adicionadas?: ";
+                cout << "Quantas músicas serão adicionadas: ";
                 cin >> msc_add;
 
                 adicionar(musicAdd, numMsc, msc_add);
@@ -699,18 +714,24 @@ int main()
                 while (salvar != "3")
                 {
                     cout << "================SALVAR================" << endl;
-                    cout << " Onde você deseja salvar as alteracoes? " << endl;
-                    cout << "[1] Exportar para um arquivo binario" << endl
+                    cout << " Onde você deseja salvar as alterações? " << endl;
+                    cout << "[1] Exportar para um arquivo binário" << endl
                          << "[2] Exportar para um arquivo CSV" << endl
                          << "[3] Voltar" << endl;
                     cout << "> ";
                     cin >> salvar;
+                    ofstream arquivo_saida;
                     if (salvar == "1")
                     {
+                        arquivo_saida.open("arquivoSaidaTeste.bin", ios::binary);
+                        exportarBIN(numMsc, musicAdd, arquivo_saida);
+                        cout << "\033[32m================================" << endl;
+                        cout << "Músicas exportadas com sucesso!!" << endl;
+                        cout << "================================\033[m" << endl;
                     }
                     else if (salvar == "2")
                     {
-                        ofstream arquivo_saida("arquivoSaidaTeste.csv");
+                        arquivo_saida.open("arquivoSaidaTeste.csv");
                         string ordem_opcao;
                         bool salvar = false;
                         while (!salvar)
@@ -720,7 +741,7 @@ int main()
                             cout << "Deseja salvar em que ordem?" << endl;
                             cout << "[1] Ordem padrão" << endl
                                  << "[2] Ordenado por Artista" << endl
-                                 << "[3] Ordenado por Musicas" << endl;
+                                 << "[3] Ordenado por Músicas" << endl;
                             cout << "[4] Ordenado por Ano" << endl
                                  << "[5] Voltar" << endl;
                             cout << "> ";
@@ -738,7 +759,7 @@ int main()
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
 
                                 cout << "\033[32m================================" << endl;
-                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "Músicas exportadas com sucesso!!" << endl;
                                 cout << "================================\033[m" << endl;
                                 salvar = true;
 
@@ -763,7 +784,7 @@ int main()
                                 delete[] vetorArtista;
 
                                 cout << "\033[32m================================" << endl;
-                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "Músicas exportadas com sucesso!!" << endl;
                                 cout << "================================\033[m" << endl;
 
                                 salvar = true;
@@ -783,7 +804,7 @@ int main()
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vet_aux);
 
                                 cout << "\033[32m================================" << endl;
-                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "Músicas exportadas com sucesso!!" << endl;
                                 cout << "================================\033[m" << endl;
 
                                 salvar = true;
@@ -807,7 +828,7 @@ int main()
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
 
                                 cout << "\033[32m================================" << endl;
-                                cout << "Musicas exportadas com sucesso!!" << endl;
+                                cout << "Músicas exportadas com sucesso!!" << endl;
                                 cout << "================================\033[m" << endl;
 
                                 salvar = true;
@@ -820,8 +841,11 @@ int main()
                             {
                                 salvar = true;
                             }
+                            
                         }
+                      
                     }
+                    arquivo.close();
                 }
             }
         }
