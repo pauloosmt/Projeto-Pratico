@@ -3,9 +3,8 @@
 #include <string>
 #include <cstring>
 
-// Ultima alteração 13:50, 21/06
+// Ultima alteração 00:10, 24/06
 // Por Paulo;
-
 
 using namespace std;
 
@@ -13,18 +12,19 @@ struct Musicas
 {
     char artista[50];       // Nome do artista
     char nomeMsc[50];       // Nome da música
-    int duracaoMs;        // Duração da música em milissegundos
+    int duracaoMs;          // Duração da música em milissegundos
     char generoMusical[30]; // Gênero musical
-    int anoLancamento;    // Ano de lançamento
-    double streams;       // Quantidade de streams (em bilhões)
-    double volumeMedio;   // Volume médio da música (em decibéis)
-    bool apagada = false; // Marca se a música foi apagada logicamente
+    int anoLancamento;      // Ano de lançamento
+    double streams;         // Quantidade de streams (em bilhões)
+    double volumeMedio;     // Volume médio da música (em decibéis)
+    bool apagada = false;   // Marca se a música foi apagada logicamente
 
     // Função para imprimir os dados da música
     void imprimir()
     {
         if (!apagada)
         { // Só imprime se a música não estiver apagada
+            cout << endl;
             cout << "Artista: " << artista << endl;
             cout << "Musica: " << nomeMsc << endl;
             cout << "Duracao: " << duracaoMs << " ms" << endl;
@@ -38,26 +38,26 @@ struct Musicas
     void leitura(ifstream &arquivo, Musicas &musicAdd)
     {
         // AQUI EU NAO SEI OQ ESTA ACONTECENDO PAULIN, MAS TA FUNCIONANDO
-        string lixo,temp;
+        string lixo, temp;
         arquivo.ignore();
-        //arquivo.ignore();
-		getline(arquivo, temp, ',');
-		strncpy(musicAdd.artista, temp.c_str(), sizeof(artista) - 1);
-		musicAdd.artista[sizeof(artista) - 1] = '\0';
-		getline(arquivo, temp, ',');
-		strncpy(musicAdd.nomeMsc, temp.c_str(), sizeof(nomeMsc) - 1);
-		musicAdd.nomeMsc[sizeof(nomeMsc) - 1] = '\0';
-		arquivo >> musicAdd.anoLancamento;
-		getline(arquivo, lixo, ',');
-		getline(arquivo, temp, ',');
-		strncpy(musicAdd.generoMusical, temp.c_str(), sizeof(generoMusical) - 1);
-		musicAdd.generoMusical[sizeof(generoMusical) - 1] = '\0';
-		arquivo >> musicAdd.streams;
-		getline(arquivo, lixo, ',');
-		arquivo >> musicAdd.duracaoMs;
-		getline(arquivo, lixo, ',');
-		arquivo >> musicAdd.volumeMedio;
-		getline(arquivo, lixo, ';');
+        // arquivo.ignore();
+        getline(arquivo, temp, ',');
+        strncpy(musicAdd.artista, temp.c_str(), sizeof(artista) - 1);
+        musicAdd.artista[sizeof(artista) - 1] = '\0';
+        getline(arquivo, temp, ',');
+        strncpy(musicAdd.nomeMsc, temp.c_str(), sizeof(nomeMsc) - 1);
+        musicAdd.nomeMsc[sizeof(nomeMsc) - 1] = '\0';
+        arquivo >> musicAdd.anoLancamento;
+        getline(arquivo, lixo, ',');
+        getline(arquivo, temp, ',');
+        strncpy(musicAdd.generoMusical, temp.c_str(), sizeof(generoMusical) - 1);
+        musicAdd.generoMusical[sizeof(generoMusical) - 1] = '\0';
+        arquivo >> musicAdd.streams;
+        getline(arquivo, lixo, ',');
+        arquivo >> musicAdd.duracaoMs;
+        getline(arquivo, lixo, ',');
+        arquivo >> musicAdd.volumeMedio;
+        getline(arquivo, lixo, ';');
     }
 };
 // Função para converter uma string para minúsculas
@@ -124,7 +124,7 @@ void ordenaVetorStrings(string vet[], int tam, int vet_aux[])
     }
 }
 
-//funçao que, atraves da busca binaria, faz a procura do nome do artista buscado 
+// funçao que, atraves da busca binaria, faz a procura do nome do artista buscado
 void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], int vet_aux[])
 {
 
@@ -148,7 +148,7 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
                 posicao_final = meio - 1;
         }
     }
-//imprime o artista na posiçao encontrada e todas as outras possiveis apariçoes do mesmo artista
+    // imprime o artista na posiçao encontrada e todas as outras possiveis apariçoes do mesmo artista
     if (posicao_desejada != -1)
     {
         musicAdd[vet_aux[posicao_desejada]].imprimir();
@@ -165,9 +165,13 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
         }
     }
     else
-        cout << "Nao existe esse artista no arquivo" << endl;
+    {
+        cout << endl;
+        cout << "Nao existe esse artista no arquivo!!" << endl;
+        cout << endl;
+    }
 }
-//funçao que, atraves da busca binaria, faz a procura do nome da musica buscada 
+// funçao que, atraves da busca binaria, faz a procura do nome da musica buscada
 void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[])
 {
     ordenaVetorStrings(vet, tam, vet_aux);
@@ -209,7 +213,9 @@ void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
 
     else
     {
-        cout << "Nao existe essa musica no arquivo!" << endl;
+        cout << endl;
+        cout << "Nao existe essa musica no arquivo!!" << endl;
+        cout << endl;
     }
 }
 
@@ -266,7 +272,9 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
 
     if (!encontrado)
     {
+        cout << endl;
         cout << "ERRO! Não foi possivel achar uma musica na lista lançada em " << anoBusca << "!!!" << endl;
+        cout << endl;
         return;
     }
 
@@ -303,46 +311,38 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
     return;
 }
 
-void buscas(string buscar, Musicas &vetor)
-{
-
-    if (buscar == "1")
-    {
-        vetor.imprimir();
-    }
-}
-
 void adicionar(Musicas *&vetor, int &tam, int adicional)
 {
     tam += adicional;
-	string Temp;
+    string Temp;
     Musicas *temp = new Musicas[tam];
 
     for (int i = 0; i < tam - adicional; i++)
     {
         strncpy(temp[i].artista, vetor[i].artista, sizeof(temp[i].artista));
-		temp[i].artista[sizeof(temp[i].artista) - 1] = '\0';
+        temp[i].artista[sizeof(temp[i].artista) - 1] = '\0';
 
-		strncpy(temp[i].nomeMsc, vetor[i].nomeMsc, sizeof(temp[i].nomeMsc));
-		temp[i].nomeMsc[sizeof(temp[i].nomeMsc) - 1] = '\0';
+        strncpy(temp[i].nomeMsc, vetor[i].nomeMsc, sizeof(temp[i].nomeMsc));
+        temp[i].nomeMsc[sizeof(temp[i].nomeMsc) - 1] = '\0';
 
-		strncpy(temp[i].generoMusical, vetor[i].generoMusical, sizeof(temp[i].generoMusical));
-		temp[i].generoMusical[sizeof(temp[i].generoMusical) - 1] = '\0';
-        //temp[i].artista = vetor[i].artista;
-        //temp[i].nomeMsc = vetor[i].nomeMsc;
+        strncpy(temp[i].generoMusical, vetor[i].generoMusical, sizeof(temp[i].generoMusical));
+        temp[i].generoMusical[sizeof(temp[i].generoMusical) - 1] = '\0';
+        // temp[i].artista = vetor[i].artista;
+        // temp[i].nomeMsc = vetor[i].nomeMsc;
         temp[i].duracaoMs = vetor[i].duracaoMs;
-        //temp[i].generoMusical = vetor[i].generoMusical;
+        // temp[i].generoMusical = vetor[i].generoMusical;
         temp[i].anoLancamento = vetor[i].anoLancamento;
         temp[i].streams = vetor[i].streams;
         temp[i].volumeMedio = vetor[i].volumeMedio;
     }
     for (int i = tam - adicional; i < tam; i++)
     {
-        cout << endl << "Nome do Artista: ";
+        cout << endl
+             << "Nome do Artista: ";
         cin.ignore();
         getline(cin, Temp);
-		strncpy(temp[i].artista, Temp.c_str(), sizeof(temp[i].artista));
-        cout  << "Nome da Musica: ";
+        strncpy(temp[i].artista, Temp.c_str(), sizeof(temp[i].artista));
+        cout << "Nome da Musica: ";
         getline(cin, Temp);
         strncpy(temp[i].nomeMsc, Temp.c_str(), sizeof(temp[i].nomeMsc));
         cout << "Duracao da Musica: ";
@@ -351,11 +351,11 @@ void adicionar(Musicas *&vetor, int &tam, int adicional)
         cin.ignore();
         getline(cin, Temp);
         strncpy(temp[i].generoMusical, Temp.c_str(), sizeof(temp[i].generoMusical));
-        cout  << "Ano do Lancamento da Musica: ";
+        cout << "Ano do Lancamento da Musica: ";
         cin >> temp[i].anoLancamento;
         cout << "Numero de Streams da Musica: ";
         cin >> temp[i].streams;
-        cout  << "Volume Medio da Musica: ";
+        cout << "Volume Medio da Musica: ";
         cin >> temp[i].volumeMedio;
     }
 
@@ -377,15 +377,15 @@ void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[]
 
     for (int i = 0; i < tam; i++)
     {
-        if(!musicAdd[i].apagada)
-        arquivo << "\n"
-                << musicAdd[vetor_pos[i]].artista << ","
-                << musicAdd[vetor_pos[i]].nomeMsc << ","
-                << musicAdd[vetor_pos[i]].anoLancamento << ","
-                << musicAdd[vetor_pos[i]].generoMusical << ","
-                << musicAdd[vetor_pos[i]].streams << ","
-                << musicAdd[vetor_pos[i]].duracaoMs << ","
-                << musicAdd[vetor_pos[i]].volumeMedio << ";";
+        if (!musicAdd[i].apagada)
+            arquivo << "\n"
+                    << musicAdd[vetor_pos[i]].artista << ","
+                    << musicAdd[vetor_pos[i]].nomeMsc << ","
+                    << musicAdd[vetor_pos[i]].anoLancamento << ","
+                    << musicAdd[vetor_pos[i]].generoMusical << ","
+                    << musicAdd[vetor_pos[i]].streams << ","
+                    << musicAdd[vetor_pos[i]].duracaoMs << ","
+                    << musicAdd[vetor_pos[i]].volumeMedio << ";";
     }
 }
 
@@ -395,19 +395,22 @@ int main()
     int mscLidas;
     string lixo;
 
-	string modelo_arq;
-	while((modelo_arq != "1") and (modelo_arq != "2")){
-		cout << "================== ARQUIVO ==================" << endl;
-		cout << " Qual arquivo voce deseja abrir para leitura " << endl;
-		cout << "[1] Arquivo csv" << endl  << "[2] Arquivo binario" << endl;
-		cin >> modelo_arq;
+    string modelo_arq;
+    while ((modelo_arq != "1") and (modelo_arq != "2"))
+    {
+        cout << "================== ARQUIVO ==================" << endl;
+        cout << " Qual arquivo voce deseja abrir para leitura " << endl;
+        cout << "[1] Arquivo csv" << endl
+             << "[2] Arquivo binario" << endl
+             << "> ";
+        cin >> modelo_arq;
     }
 
     ifstream arquivo;
-    if(modelo_arq == "1")
-		arquivo.open("spotify100.csv"); //abertura do arquivo
-	else if(modelo_arq == "2")
-		arquivo.open("Spotify100.bin",ios::binary);
+    if (modelo_arq == "1")
+        arquivo.open("spotify100.csv"); // abertura do arquivo
+    else if (modelo_arq == "2")
+        arquivo.open("Spotify100.bin", ios::binary);
 
     if (!arquivo)
     {
@@ -416,66 +419,66 @@ int main()
     }
     else
     {
-		Musicas *musicAdd;
-		if(modelo_arq == "1"){
-			numMsc = 40;  // Capacidade de musicas iniciais
-			mscLidas = 0; // Valor de musicas que ja foram adicionadas no vetor
+        Musicas *musicAdd;
+        if (modelo_arq == "1")
+        {
+            numMsc = 40;  // Capacidade de musicas iniciais
+            mscLidas = 0; // Valor de musicas que ja foram adicionadas no vetor
 
-			arquivo >> lixo;
-			musicAdd = new Musicas[numMsc]; // Vetor que armazenas as musicas
-			Musicas *temp;                           // vetor temporario para fazer redimensionamento
+            arquivo >> lixo;
+            musicAdd = new Musicas[numMsc]; // Vetor que armazenas as musicas
+            Musicas *temp;                  // vetor temporario para fazer redimensionamento
 
-			while (arquivo.peek() != EOF)
-			{ // peek() != EOF, vai conferir se o ponteiro de leitura esta ou nao no final doa arquivo
+            while (arquivo.peek() != EOF)
+            { // peek() != EOF, vai conferir se o ponteiro de leitura esta ou nao no final doa arquivo
 
-				// Redimensionamento
-				if (mscLidas == numMsc)
-				{
-					numMsc += 5;
-					temp = new Musicas[numMsc];
+                // Redimensionamento
+                if (mscLidas == numMsc)
+                {
+                    numMsc += 5;
+                    temp = new Musicas[numMsc];
 
-					for (int i = 0; i < mscLidas; i++)
-					{
-						temp[i] = musicAdd[i];
-					}
-					delete[] musicAdd;
-					musicAdd = temp;
-				}
+                    for (int i = 0; i < mscLidas; i++)
+                    {
+                        temp[i] = musicAdd[i];
+                    }
+                    delete[] musicAdd;
+                    musicAdd = temp;
+                }
 
-				musicAdd[mscLidas].leitura(arquivo, musicAdd[mscLidas]);
-				mscLidas++;
-			}
-		}
-        else if(modelo_arq == "2"){
-			numMsc = 40; //Capacidade de musicas iniciais
-			mscLidas = 0; //Valor de musicas que ja foram adicionadas no vetor
+                musicAdd[mscLidas].leitura(arquivo, musicAdd[mscLidas]);
+                mscLidas++;
+            }
+        }
+        else if (modelo_arq == "2")
+        {
+            numMsc = 40;  // Capacidade de musicas iniciais
+            mscLidas = 0; // Valor de musicas que ja foram adicionadas no vetor
 
-			
-			musicAdd = new Musicas[numMsc](); // Vetor que armazenas as musicas
-			Musicas *temp; // vetor temporario para fazer redimensionamento
+            musicAdd = new Musicas[numMsc]; // Vetor que armazenas as musicas
+            Musicas *temp;                  // vetor temporario para fazer redimensionamento
 
-			while(arquivo.read((char*) &musicAdd[mscLidas], sizeof(Musicas))) {   
-				mscLidas++;
-				// Redimensionamento
-				if(mscLidas == numMsc) {
-					numMsc += 5;
-					temp = new Musicas[numMsc];
+            while (arquivo.read((char *)&musicAdd[mscLidas], sizeof(Musicas)))
+            {
+                mscLidas++;
+                // Redimensionamento
+                if (mscLidas == numMsc)
+                {
+                    numMsc += 5;
+                    temp = new Musicas[numMsc];
 
-					for(int i = 0; i < mscLidas; i++) {
-						temp[i] = musicAdd[i];
+                    for (int i = 0; i < mscLidas; i++)
+                    {
+                        temp[i] = musicAdd[i];
+                    }
+                    delete[] musicAdd;
+                    musicAdd = temp;
+                }
+            }
+            arquivo.close();
+            numMsc = mscLidas;
+        }
 
-					}
-					delete[] musicAdd;
-					musicAdd = temp;
-
-				}
-				
-				
-			}
-			arquivo.close();
-			numMsc = mscLidas;
-		}
-      
         string busca;
 
         while (busca != "9")
@@ -491,7 +494,8 @@ int main()
                  << "[6] Adicionar Musicas" << endl
                  << "[7] Remover Musicas" << endl
                  << "[8] Salvar alteracoes" << endl
-                 << "[9] Sair" << endl;
+                 << "[9] Sair" << endl
+                 << "> ";
 
             cin >> busca;
             cin.ignore();
@@ -506,12 +510,13 @@ int main()
                          << "[2] Por artista" << endl
                          << "[3] Por musica" << endl
                          << "[4] Por ano" << endl
-                         << "[5] Sair" << endl;
+                         << "[5] Sair" << endl
+                         << "> ";
                     cin >> impressao;
 
                     if (impressao == "1")
                         for (int i = 0; i < numMsc; i++)
-                            buscas(busca, musicAdd[i]);
+                            musicAdd[i].imprimir();
                     else if (impressao == "2")
                     {
                         int *vet_aux = new int[numMsc];
@@ -579,8 +584,18 @@ int main()
                 cout << "Fim: ";
                 cin >> posicao_final;
 
-                for (int i = posicao_inicial - 1; i <= posicao_final - 1; i++)
-                    musicAdd[i].imprimir();
+
+                if((posicao_inicial > 0 and posicao_inicial <= numMsc) and (posicao_final > 0 and posicao_final <= numMsc) and (posicao_inicial <= posicao_final)) {
+                    for (int i = posicao_inicial - 1; i <= posicao_final - 1; i++)
+                        musicAdd[i].imprimir();
+                }
+                else {
+                    cout << endl;
+                    cout << "----------------------------------" << endl;
+                    cout << "Trecho invalido, tente novamente!!" << endl;
+                    cout << "----------------------------------" << endl;
+                    cout << endl;
+                }
             }
 
             else if (busca == "3")
@@ -688,7 +703,7 @@ int main()
                     cout << "[1] Exportar para um arquivo binario" << endl
                          << "[2] Exportar para um arquivo CSV" << endl
                          << "[3] Voltar" << endl;
-                    cout << " > ";
+                    cout << "> ";
                     cin >> salvar;
                     if (salvar == "1")
                     {
@@ -715,7 +730,8 @@ int main()
                             {
 
                                 int *vetAux = new int[numMsc];
-                                for(int i = 0; i < numMsc; i++) {
+                                for (int i = 0; i < numMsc; i++)
+                                {
                                     vetAux[i] = i;
                                 }
 
@@ -764,7 +780,6 @@ int main()
                                 }
                                 ordenaVetorStrings(vetorMusica, numMsc, vet_aux);
 
-
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vet_aux);
 
                                 cout << "==============================" << endl;
@@ -811,9 +826,11 @@ int main()
             }
         }
 
+        cout << endl;
         cout << "=============================" << endl;
         cout << "   Obrigado, volte sempre!   " << endl;
         cout << "=============================" << endl;
+        cout << endl;
 
         delete[] musicAdd;
     }
