@@ -40,7 +40,7 @@ struct Musicas
         // AQUI EU NAO SEI OQ ESTA ACONTECENDO PAULIN, MAS TA FUNCIONANDO
         string lixo, temp;
         arquivo.ignore();
-        // arquivo.ignore();
+        arquivo.ignore();
         getline(arquivo, temp, ',');
         strncpy(musicAdd.artista, temp.c_str(), sizeof(artista) - 1);
         musicAdd.artista[sizeof(artista) - 1] = '\0';
@@ -273,7 +273,7 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
     if (!encontrado)
     {
         cout << endl;
-        cout << "ERRO! Não foi possivel achar uma musica na lista lançada em " << anoBusca << "!!!" << endl;
+        cout << "\033[7;30;31mERRO! Não foi possivel achar uma musica na lista lançada em " << anoBusca << "!!!\033[m" << endl;
         cout << endl;
         return;
     }
@@ -362,9 +362,9 @@ void adicionar(Musicas *&vetor, int &tam, int adicional)
     delete[] vetor;
     vetor = temp;
     cout << endl;
-    cout << "===============================" << endl;
+    cout << "\033[32m===============================" << endl;
     cout << "Musicas adicionadas com sucesso" << endl;
-    cout << "===============================" << endl;
+    cout << "===============================\033[m" << endl;
     cout << endl;
 
     return;
@@ -414,7 +414,7 @@ int main()
 
     if (!arquivo)
     {
-        cout << "Erro ao abrir arquivo!" << endl;
+        cout << "\033[31mErro ao abrir arquivo!\033[m" << endl;
         return 1;
     }
     else
@@ -591,9 +591,9 @@ int main()
                 }
                 else {
                     cout << endl;
-                    cout << "----------------------------------" << endl;
+                    cout << "\033[1;31m----------------------------------" << endl;
                     cout << "Trecho invalido, tente novamente!!" << endl;
-                    cout << "----------------------------------" << endl;
+                    cout << "----------------------------------\033[m" << endl;
                     cout << endl;
                 }
             }
@@ -601,7 +601,7 @@ int main()
             else if (busca == "3")
             {
                 int buscaAno;
-                cout << "Qual ano vc deseja buscar?: ";
+                cout << "Digite o ano que voce deseja buscar: ";
                 cin >> buscaAno;
 
                 // Vetores auxiliares que ajudarao na ordenacao
@@ -737,9 +737,9 @@ int main()
 
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
 
-                                cout << "================================" << endl;
+                                cout << "\033[32m================================" << endl;
                                 cout << "Musicas exportadas com sucesso!!" << endl;
-                                cout << "================================" << endl;
+                                cout << "================================\033[m" << endl;
                                 salvar = true;
 
                                 delete[] vetAux;
@@ -762,9 +762,9 @@ int main()
                                 delete[] vet_aux;
                                 delete[] vetorArtista;
 
-                                cout << "================================" << endl;
+                                cout << "\033[32m================================" << endl;
                                 cout << "Musicas exportadas com sucesso!!" << endl;
-                                cout << "================================" << endl;
+                                cout << "================================\033[m" << endl;
 
                                 salvar = true;
                             }
@@ -782,9 +782,9 @@ int main()
 
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vet_aux);
 
-                                cout << "==============================" << endl;
+                                cout << "\033[32m================================" << endl;
                                 cout << "Musicas exportadas com sucesso!!" << endl;
-                                cout << "==============================" << endl;
+                                cout << "================================\033[m" << endl;
 
                                 salvar = true;
 
@@ -806,9 +806,9 @@ int main()
 
                                 exportarCSV(numMsc, musicAdd, arquivo_saida, vetAux);
 
-                                cout << "================================" << endl;
+                                cout << "\033[32m================================" << endl;
                                 cout << "Musicas exportadas com sucesso!!" << endl;
-                                cout << "================================" << endl;
+                                cout << "================================\033[m" << endl;
 
                                 salvar = true;
 
@@ -827,9 +827,9 @@ int main()
         }
 
         cout << endl;
-        cout << "=============================" << endl;
+        cout << "\033[33m=============================" << endl;
         cout << "   Obrigado, volte sempre!   " << endl;
-        cout << "=============================" << endl;
+        cout << "=============================\033[m" << endl;
         cout << endl;
 
         delete[] musicAdd;
