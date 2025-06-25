@@ -37,7 +37,6 @@ struct Musicas
     }
     void leitura(ifstream &arquivo, Musicas &musicAdd)
     {
-        // AQUI EU NAO SEI OQ ESTA ACONTECENDO PAULIN, MAS TA FUNCIONANDO
         string lixo, temp;
         arquivo.ignore();
         arquivo.ignore();
