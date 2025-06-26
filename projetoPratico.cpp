@@ -3,8 +3,16 @@
 #include <string>
 #include <cstring>
 
-// Ultima alteração 00:10, 24/06
-// Por Paulo;
+// Tema: As músicas mais tocadas do Spotify
+
+// Alunos: 
+// Paulo Sergio Mendes Taciano
+// João Pedro Teodoro de Abreu
+// Karim Soares Lentz
+
+// Turma: 10A
+
+
 
 using namespace std;
 
@@ -37,8 +45,8 @@ struct Musicas
     }
     void leitura(ifstream &arquivo, Musicas &musicAdd)
     {
+        //Função que executa a leitura dos dados do arquivo e coloca elas no vetor de músicas
         string lixo, temp;
-        arquivo.ignore();
         arquivo.ignore();
         getline(arquivo, temp, ',');
         strncpy(musicAdd.artista, temp.c_str(), sizeof(artista) - 1);
@@ -101,7 +109,7 @@ void apagarMusica(Musicas vetor[], int numMsc)
 
 void ordenaVetorStrings(string vet[], int tam, int vet_aux[])
 {
-    // transformando em minuscula todos os nomes de artistas antes de ordenar
+    // Transformando em minúscula todos os nomes de artistas antes de ordenar
     for (int i = 0; i < tam; i++)
         vet[i] = toLowerCustom(vet[i]);
 
@@ -116,14 +124,14 @@ void ordenaVetorStrings(string vet[], int tam, int vet_aux[])
         aux = vet[i];
         vet[i] = vet[indice_menor];
         vet[indice_menor] = aux;
-        // ordenando o vetor auxiliar que tem os indices de cada musica no vetor original junto
+        // Ordenando o vetor auxiliar que tem os indíces de cada música no vetor original junto
         aux2 = vet_aux[i];
         vet_aux[i] = vet_aux[indice_menor];
         vet_aux[indice_menor] = aux2;
     }
 }
 
-// funçao que, atraves da busca binaria, faz a procura do nome do artista buscado
+// Função que, através da busca binaria, faz a procura do nome do artista buscado
 void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], int vet_aux[])
 {
 
@@ -134,7 +142,7 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
     {
         meio = (posicao_inicial + posicao_final) / 2;
 
-        if ((artista == vet[meio]) and (!musicAdd[vet_aux[meio]].apagada))
+        if ((artista == vet[meio]) and (!musicAdd[vet_aux[meio]].apagada)) 
         {
             posicao_desejada = meio;
             posicao_inicial = posicao_final + 1;
@@ -147,16 +155,20 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
                 posicao_final = meio - 1;
         }
     }
-    // imprime o artista na posiçao encontrada e todas as outras possiveis apariçoes do mesmo artista
+    // Imprime o artista na posição encontrada e todas as outras possíveis aparições do mesmo artista
     if (posicao_desejada != -1)
     {
         musicAdd[vet_aux[posicao_desejada]].imprimir();
         int x = 1, y = 1;
+
+        //Conferindo se possui mais alguma música do artista desejado a direita do vetor
         while (((vet[posicao_desejada + x]) == artista) and (!musicAdd[vet_aux[posicao_desejada + x]].apagada))
         {
             musicAdd[vet_aux[posicao_desejada + x]].imprimir();
             x++;
         }
+
+        //Conferindo se possui mais alguma música do artista desejado a esquerda do vetor
         while (((vet[posicao_desejada - y]) == artista) and (!musicAdd[vet_aux[posicao_desejada - y]].apagada))
         {
             musicAdd[vet_aux[posicao_desejada - y]].imprimir();
@@ -170,11 +182,11 @@ void procuraArtista(int tam, string vet[], string artista, Musicas musicAdd[], i
         cout << endl;
     }
 }
-// funçao que, atraves da busca binaria, faz a procura do nome da musica buscada
+// Função que, atraves da busca binária, faz a procura do nome da musica buscada
 void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas musicAdd[])
 {
     ordenaVetorStrings(vet, tam, vet_aux);
-    // busca binaria simples pra encontrar a musica
+    // Busca binária simples pra encontrar a música
 
     int posicao_inicial = 0, posicao_final = (tam - 1), meio, posicao_desejada = -1;
     while (posicao_inicial <= posicao_final)
@@ -193,7 +205,7 @@ void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
                 posicao_final = meio - 1;
         }
     }
-    // imprime a(s) musica(s) desejada(s) ou mensagem de erro caso ela n exista no arquivo
+    // Imprime a(s) musica(s) desejada(s) ou mensagem de erro caso ela n exista no arquivo
     if (posicao_desejada != -1)
     {
         musicAdd[vet_aux[posicao_desejada]].imprimir();
@@ -220,6 +232,8 @@ void procuraMusica(int tam, string vet[], string musica, int vet_aux[], Musicas 
 
 void ordenarANO(int tam, int *vetor_pos, int vet[])
 {
+    /*Função de ordenar ano, que ordena um vetor auxiliar de indíces
+    Esse vetor terá seus elementos ordenados na ordem cronológica dos anos no vetor original*/
     int menor, aux;
     for (int i = 0; i < tam - 1; i++)
     {
@@ -312,28 +326,29 @@ void busca_dos_anos(int tam, int *&vetor_pos, int vet[], int anoBusca, int &ocas
 
 void adicionar(Musicas *&vetor, int &tam, int adicional)
 {
+    // Função de adcionar músicas no vetor
     tam += adicional;
     string Temp;
     Musicas *temp = new Musicas[tam];
+
+    // Fazendo o redimensionamento, copiando a músicas que já existem no vetor
 
     for (int i = 0; i < tam - adicional; i++)
     {
         strncpy(temp[i].artista, vetor[i].artista, sizeof(temp[i].artista));
         temp[i].artista[sizeof(temp[i].artista) - 1] = '\0';
-
         strncpy(temp[i].nomeMsc, vetor[i].nomeMsc, sizeof(temp[i].nomeMsc));
         temp[i].nomeMsc[sizeof(temp[i].nomeMsc) - 1] = '\0';
-
         strncpy(temp[i].generoMusical, vetor[i].generoMusical, sizeof(temp[i].generoMusical));
         temp[i].generoMusical[sizeof(temp[i].generoMusical) - 1] = '\0';
-        // temp[i].artista = vetor[i].artista;
-        // temp[i].nomeMsc = vetor[i].nomeMsc;
         temp[i].duracaoMs = vetor[i].duracaoMs;
-        // temp[i].generoMusical = vetor[i].generoMusical;
         temp[i].anoLancamento = vetor[i].anoLancamento;
         temp[i].streams = vetor[i].streams;
         temp[i].volumeMedio = vetor[i].volumeMedio;
     }
+
+    // Adicionando a(s) nova(s) música(s)
+
     for (int i = tam - adicional; i < tam; i++)
     {
         cout << endl
@@ -369,11 +384,13 @@ void adicionar(Musicas *&vetor, int &tam, int adicional)
     return;
 }
 
+// Função de exportar os dados para o arquivo csv original
 void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[])
 {
-
+    // Fazendo o cabeçalho do arquivo
     arquivo << "artist,song,year,genre,streams_billion,duration_ms,loudness_dB;";
 
+    // Adicionando cada música no arquivo
     for (int i = 0; i < tam; i++)
     {
         if (!musicAdd[i].apagada)
@@ -390,6 +407,7 @@ void exportarCSV(int tam, Musicas musicAdd[], ofstream &arquivo, int vetor_pos[]
     }
 }
 
+// Função que exporta os dados para o arquivo binário original
 void exportarBIN(int tam, Musicas musicAdd[], ofstream &arquivo)
 {
     for (int i = 0; i < tam; i++)
@@ -403,12 +421,12 @@ void exportarBIN(int tam, Musicas musicAdd[], ofstream &arquivo)
 
 int main()
 {
-    int numMsc;
-    int mscLidas;
-    string lixo;
+    int numMsc; // Tamanho do Vetor original
+    int mscLidas; // Variável de controle, ela auxilia no redimensionamento do Vetor Original
+    string lixo; // Variável para descartar as "impurezas" do arquivo
 
     string modelo_arq;
-    while ((modelo_arq != "1") and (modelo_arq != "2"))
+    while ((modelo_arq != "1") and (modelo_arq != "2")) // Escolha do tipo de arquivo que vai ser lido
     {
         cout << "\033[1;33m================== ARQUIVO ==================\033[m" << endl;
         cout << " Qual arquivo você deseja abrir para leitura " << endl;
@@ -420,9 +438,9 @@ int main()
 
     ifstream arquivo;
     if (modelo_arq == "1")
-        arquivo.open("spotify100.csv"); // abertura do arquivo
+        arquivo.open("spotify100.csv"); // Abertura do arquivo csv
     else if (modelo_arq == "2")
-        arquivo.open("Spotify100.bin", ios::binary);
+        arquivo.open("Spotify100.bin", ios::binary); // Abertura do arquivo binário
 
     if (!arquivo)
     {
@@ -493,7 +511,7 @@ int main()
 
         string busca;
 
-        while (busca != "9")
+        while (busca != "9") // Menu inicial
         {
             cout << "\33[1;33m=======================" << endl;
             cout << " Como posso te ajudar? " << endl;
@@ -514,7 +532,7 @@ int main()
             if (busca == "1")
             {
                 string impressao;
-                while (impressao != "5")
+                while (impressao != "5") // Menu das impressões
                 {
                     cout << "\33[1;33m========IMPRESSÃO========\33[m" << endl;
                     cout << "  Qual a ordem de impressão?  " << endl;
@@ -588,7 +606,7 @@ int main()
                     }
                 }
             }
-            else if (busca == "2")
+            else if (busca == "2") // Menu da impressão por trecho
             {
                 int posicao_inicial, posicao_final;
                 cout << "Informe o inicio e o fim do trecho" << endl;
@@ -621,7 +639,7 @@ int main()
                 }
             }
 
-            else if (busca == "3")
+            else if (busca == "3") // Busca por ano
             {
                 int buscaAno;
                 cout << "Digite o ano que você deseja buscar: ";
@@ -658,7 +676,7 @@ int main()
                 delete[] vetorAno;
             }
 
-            else if (busca == "4")
+            else if (busca == "4") // Busca por artista
             {
 
                 string buscaArtista;
@@ -685,7 +703,8 @@ int main()
                 string buscaMusica;
                 cout << "Qual o nome da música: ";
                 getline(cin, buscaMusica);
-                // transformando a string busca pra minuscula
+
+                // Transformando a string busca pra minúscula
                 buscaMusica = toLowerCustom(buscaMusica);
 
                 int *vet_aux = new int[numMsc];
@@ -702,7 +721,7 @@ int main()
                 delete[] vetorMusica;
             }
 
-            else if (busca == "6")
+            else if (busca == "6") // Adição de músicas
             {
                 int msc_add;
                 cout << "Quantas músicas serão adicionadas: ";
@@ -711,13 +730,14 @@ int main()
                 adicionar(musicAdd, numMsc, msc_add);
             }
 
-            else if (busca == "7")
+            else if (busca == "7") // Remoção de músicas 
             {
                 apagarMusica(musicAdd, numMsc);
             }
 
             else if (busca == "8")
             {
+                // Menu de exportação
                 string salvar;
                 while (salvar != "3")
                 {
@@ -731,7 +751,7 @@ int main()
                     ofstream arquivo_saida;
                     if (salvar == "1")
                     {
-                        arquivo_saida.open("arquivoSaidaTeste.bin", ios::binary);
+                        arquivo_saida.open("Spotify100.bin", ios::binary);
                         exportarBIN(numMsc, musicAdd, arquivo_saida);
                         cout << "\033[32m================================" << endl;
                         cout << "Músicas exportadas com sucesso!!" << endl;
@@ -739,12 +759,12 @@ int main()
                     }
                     else if (salvar == "2")
                     {
-                        arquivo_saida.open("arquivoSaidaTeste.csv");
+                        arquivo_saida.open("spotify100.csv");
                         string ordem_opcao;
                         bool salvar = false;
                         while (!salvar)
                         {
-
+                            // Menu de ordenação na exportação por csv
                             cout << "===========================" << endl;
                             cout << "Deseja salvar em que ordem?" << endl;
                             cout << "[1] Ordem padrão" << endl
